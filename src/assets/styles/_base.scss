@@ -1,0 +1,19 @@
+html {
+  min-height: 100vh;
+
+  body {
+    min-height: 100vh;
+
+    #app {
+      min-height: 100vh;
+
+      display: flex;
+      flex-direction: column;
+      flex-wrap: nowrap;
+
+      main {
+        flex: auto;
+      }
+    }
+  }
+}

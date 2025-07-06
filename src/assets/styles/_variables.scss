@@ -1,0 +1,37 @@
+/* Cores do tema */
+$theme-colors: (
+  "primary": #d7b77e,
+  "secondary": #ccd4da,
+);
+
+/* Funções */
+@function toRGB($color) {
+  @return red($color) + ", " + green($color) + ", " + blue($color);
+}
+
+/* Atribuir cores ao :root */
+:root {
+  @each $name, $color in $theme-colors {
+    --bs-#{$name}: #{$color};
+    --bs-#{$name}-rgb: #{toRGB($color)};
+  }
+}
+
+/* Atribuir cores aos botões */
+@each $name, $color in $theme-colors {
+  .btn-#{$name} {
+    --bs-btn-color: #fff;
+    --bs-btn-bg: #{$color};
+    --bs-btn-border-color: #{$color};
+    --bs-btn-hover-color: #fff;
+    --bs-btn-hover-bg: #{rgba($color, 0.8)};
+    --bs-btn-hover-border-color: #{rgba($color, 0.8)};
+    --bs-btn-focus-shadow-rgb: #{toRGB($color)};
+    --bs-btn-active-color: #fff;
+    --bs-btn-active-bg: #{rgba($color, 0.7)};
+    --bs-btn-active-border-color: #{rgba($color, 0.7)};
+    --bs-btn-disabled-color: #fff;
+    --bs-btn-disabled-bg: #{$color};
+    --bs-btn-disabled-border-color: #{$color};
+  }
+}

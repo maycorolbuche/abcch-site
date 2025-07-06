@@ -16,7 +16,7 @@ Object.entries(components).forEach(([componentName, component]) => {
   }
 });
 
-import "./assets/styles/main.css";
+import "./assets/styles/main.scss";
 
 app.use(router);
 app.use(createBootstrap());
