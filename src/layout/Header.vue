@@ -3,7 +3,7 @@
     class="d-flex flex-nowrap flex-row justify-content-center pt-3 pb-1 px-3"
   >
     <div class="left-menu flex-auto">
-      <div class="header-title fw-bold h-50">
+      <div class="header-title fw-bold fst-italic h-50">
         ASSOCIAÇÃO BRASILEIRA DOS CRIADORES DO CAVALO BRASILEIRO DE HIPISMO
       </div>
       <div class="main-menu h-50">
