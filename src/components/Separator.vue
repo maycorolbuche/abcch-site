@@ -5,7 +5,7 @@
   </div>
 </template>
 
-<style scoped lang="scss">
+<style lang="scss" scoped>
 .root-element {
   height: 50px;
   background: var(--bs-primary);

@@ -11,7 +11,10 @@
 <script>
 export default {
   props: {
-    path: String,
+    path: {
+      type: String,
+      required: true,
+    },
     color: String,
     width: String,
   },
