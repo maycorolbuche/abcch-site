@@ -1,8 +1,11 @@
+@use "fonts";
+
 html {
   min-height: 100vh;
 
   body {
     min-height: 100vh;
+    font-family: fonts.$primary-font;
 
     #app {
       min-height: 100vh;

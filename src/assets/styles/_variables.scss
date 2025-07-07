@@ -2,9 +2,14 @@
 
 /* Cores do tema */
 $theme-colors: (
-  "primary": #d7b77e,
+  "primary": #bf9d62,
   "secondary": #ccd4da,
 );
+
+/* Root */
+:root {
+  --bs-border-radius: 0.275rem;
+}
 
 /* Funções */
 @function toRGB($color) {
