@@ -38,7 +38,6 @@ export default {
     },
     level: {
       type: Number,
-      required: true,
       default: 1,
     },
   },
@@ -75,6 +74,20 @@ export default {
       border-image: linear-gradient(to bottom, #fff, var(--bs-primary)) 1;
       box-shadow: 0 8px 6px -6px rgba(0, 0, 0, 0.3);
 
+      @media (max-width: 1200px) {
+        font-size: 16px;
+      }
+
+      @media (max-width: 1100px) {
+        font-size: 14px;
+      }
+
+      @media (max-width: 1000px) {
+        font-size: 12px;
+        font-weight: 700;
+        margin: 0 3px 0 3px;
+      }
+
       &:hover {
         background-color: var(--bs-primary);
         border-image: linear-gradient(
@@ -93,17 +106,44 @@ export default {
         padding: 0 14px 0 14px;
         margin: 0;
         color: #000;
+        height: 100%;
+        align-content: center;
       }
     }
 
     .dropdown-menu {
-      > li > a:hover:after {
-        text-decoration: underline;
-        transform: rotate(-90deg);
-      }
-
       top: 0;
       margin-top: 36px;
+      border-radius: 0;
+      box-shadow: 0px 4px 12px 3px rgba(0, 0, 0, 0.3);
+      width: 200px;
+
+      > li {
+        > a {
+          color: #000;
+          font-size: 15px;
+          font-weight: 600;
+          border-bottom: 1px solid var(--bs-primary);
+          padding: 8px 5px 6px 5px;
+          margin: 0 10px;
+          width: calc(100% - 20px);
+
+          &:hover {
+            background-color: var(--bs-primary);
+          }
+
+          &:hover:after {
+            text-decoration: underline;
+            transform: rotate(-90deg);
+          }
+        }
+
+        &:last-child {
+          a {
+            border-bottom-width: 6px;
+          }
+        }
+      }
 
       .dropdown-submenu {
         position: relative;
