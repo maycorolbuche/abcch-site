@@ -14,7 +14,23 @@
       <Logo :width="100" />
     </div>
     <div class="flex-auto">
-      <div class="h-50">LINHA 1</div>
+      <div class="h-50 d-flex justify-content-end" style="gap: 20px">
+        <a href="">
+          <MagnifyIcon width="26px" />
+        </a>
+        <a href="">
+          <FacebookIcon width="26px" />
+        </a>
+        <a href="">
+          <YoutubeIcon width="26px" />
+        </a>
+        <a href="">
+          <InstagramIcon width="26px" />
+        </a>
+        <a href="">
+          <WhatsappIcon width="26px" />
+        </a>
+      </div>
       <div class="h-50">
         <MainMenu :items="menu[1]" />
       </div>
@@ -26,10 +42,22 @@
 import MainMenu from "@/components/MainMenu.vue";
 import Logo from "@/components/Logo.vue";
 
+import MagnifyIcon from "@/components/icons/Magnify.vue";
+import FacebookIcon from "@/components/icons/Facebook.vue";
+import YoutubeIcon from "@/components/icons/Youtube.vue";
+import InstagramIcon from "@/components/icons/Instagram.vue";
+import WhatsappIcon from "@/components/icons/Whatsapp.vue";
+
 export default {
   components: {
     MainMenu,
     Logo,
+
+    MagnifyIcon,
+    FacebookIcon,
+    YoutubeIcon,
+    InstagramIcon,
+    WhatsappIcon,
   },
   computed: {
     menu() {
