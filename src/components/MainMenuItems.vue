@@ -116,7 +116,7 @@ export default {
       margin-top: 36px;
       border-radius: 0;
       box-shadow: 0px 4px 12px 3px rgba(0, 0, 0, 0.3);
-      width: 200px;
+      width: 240px;
 
       > li {
         > a {
@@ -124,9 +124,10 @@ export default {
           font-size: 15px;
           font-weight: 600;
           border-bottom: 1px solid var(--bs-primary);
-          padding: 8px 5px 6px 5px;
+          padding: 10px 5px 8px 5px;
           margin: 0 10px;
           width: calc(100% - 20px);
+          text-wrap: auto;
 
           &:hover {
             background-color: var(--bs-primary);
