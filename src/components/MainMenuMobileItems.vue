@@ -1,7 +1,14 @@
 <template>
   <BCard no-body class="m-1 p-0">
     <template v-for="(item, key) in items" :key="key">
-      <BLink v-b-toggle="`mobile-menu-${level}-${key}`" href="javascript:">
+      <BLink
+        v-b-toggle="
+          item.submenu && item.submenu.length != 0
+            ? `mobile-menu-${level}-${key}`
+            : ''
+        "
+        href="javascript:"
+      >
         <span>{{ item.title }}</span>
         <span v-if="item.submenu && item.submenu.length != 0" class="float-end">
           <ChevronDownIcon width="20px" />
@@ -45,6 +52,7 @@ export default {
   box-shadow: 0 8px 6px -6px rgba(0, 0, 0, 0.3);
 
   > a {
+    text-transform: uppercase;
     color: #000;
     font-size: 15px;
     font-weight: 600;

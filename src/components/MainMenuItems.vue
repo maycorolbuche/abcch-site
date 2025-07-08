@@ -26,6 +26,9 @@
         :level="level + 1"
       />
     </li>
+    <li>
+      <hr />
+    </li>
   </ul>
 </template>
 
@@ -109,6 +112,14 @@ export default {
         height: 100%;
         align-content: center;
       }
+
+      hr {
+        padding: 0;
+        margin: 0 10px;
+        border-width: 6px;
+        border-color: var(--bs-primary);
+        opacity: 1;
+      }
     }
 
     .dropdown-menu {
@@ -136,12 +147,6 @@ export default {
           &:hover:after {
             text-decoration: underline;
             transform: rotate(-90deg);
-          }
-        }
-
-        &:last-child {
-          a {
-            border-bottom-width: 6px;
           }
         }
       }
