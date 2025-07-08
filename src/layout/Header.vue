@@ -18,24 +18,24 @@
         class="social-icons h-50 d-flex justify-content-end"
         style="gap: 20px"
       >
-        <a href="">
+        <BLink href="">
           <MagnifyIcon width="26px" />
-        </a>
-        <a href="">
+        </BLink>
+        <BLink href="">
           <FacebookIcon width="26px" />
-        </a>
-        <a href="">
+        </BLink>
+        <BLink href="">
           <YoutubeIcon width="26px" />
-        </a>
-        <a href="">
+        </BLink>
+        <BLink href="">
           <InstagramIcon width="26px" />
-        </a>
-        <a href="">
+        </BLink>
+        <BLink href="">
           <WhatsappIcon width="26px" />
-        </a>
-        <a href="" class="menu-mobile-button">
-          <MenuIcon width="26px" color="var(--bs-primary)" />
-        </a>
+        </BLink>
+        <div class="menu-mobile-button">
+          <MainMenuMobile :items="[...menu[0], ...menu[1]]" />
+        </div>
       </div>
       <div class="main-menu h-50">
         <MainMenu :items="menu[1]" />
@@ -46,6 +46,7 @@
 
 <script>
 import MainMenu from "@/components/MainMenu.vue";
+import MainMenuMobile from "@/components/MainMenuMobile.vue";
 import Logo from "@/components/Logo.vue";
 
 import MagnifyIcon from "@/components/icons/Magnify.vue";
@@ -53,11 +54,11 @@ import FacebookIcon from "@/components/icons/Facebook.vue";
 import YoutubeIcon from "@/components/icons/Youtube.vue";
 import InstagramIcon from "@/components/icons/Instagram.vue";
 import WhatsappIcon from "@/components/icons/Whatsapp.vue";
-import MenuIcon from "@/components/icons/Menu.vue";
 
 export default {
   components: {
     MainMenu,
+    MainMenuMobile,
     Logo,
 
     MagnifyIcon,
@@ -65,7 +66,6 @@ export default {
     YoutubeIcon,
     InstagramIcon,
     WhatsappIcon,
-    MenuIcon,
   },
   computed: {
     menu() {
