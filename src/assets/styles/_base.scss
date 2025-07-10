@@ -2,10 +2,12 @@
 
 html {
   min-height: 100vh;
+  overflow-x: hidden;
 
   body {
     min-height: 100vh;
     font-family: fonts.$primary-font;
+    overflow-x: hidden;
 
     #app {
       min-height: 100vh;

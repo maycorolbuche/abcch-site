@@ -73,6 +73,7 @@ export default {
         [
           {
             title: "Home",
+            to: { name: "home" },
           },
           {
             title: "Studbook",
@@ -150,6 +151,7 @@ export default {
           },
           {
             title: "Área Restrita",
+            href: "https://abcch.com.br/sistema/",
           },
         ],
       ];

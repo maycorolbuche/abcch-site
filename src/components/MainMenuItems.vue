@@ -10,13 +10,26 @@
           level != 1 && item.submenu && item.submenu.length != 0,
       }"
     >
-      <a
+      <router-link
+        v-if="item?.to"
         :class="{
           'nav-link': level == 1,
           'dropdown-item': level != 1,
           'dropdown-toggle': item.submenu && item.submenu.length != 0,
         }"
-        href="#"
+        :to="item.to"
+      >
+        {{ item.title }}
+      </router-link>
+      <a
+        v-else
+        :class="{
+          'nav-link': level == 1,
+          'dropdown-item': level != 1,
+          'dropdown-toggle': item.submenu && item.submenu.length != 0,
+        }"
+        :href="item.href ?? '#'"
+        :target="item.target ?? '_blank'"
       >
         {{ item.title }}
       </a>
@@ -111,6 +124,10 @@ export default {
         color: #000;
         height: 100%;
         align-content: center;
+
+        &:hover {
+          text-decoration: none;
+        }
       }
 
       hr {

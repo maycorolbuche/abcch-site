@@ -1,13 +1,26 @@
 <template>
   <BCard no-body class="m-1 p-0">
     <template v-for="(item, key) in items" :key="key">
-      <BLink
+      <router-link
+        v-if="item?.to"
         v-b-toggle="
           item.submenu && item.submenu.length != 0
             ? `mobile-menu-${level}-${key}`
             : ''
         "
-        href="javascript:"
+        :to="item.to"
+      >
+        {{ item.title }}
+      </router-link>
+      <BLink
+        v-else
+        v-b-toggle="
+          item.submenu && item.submenu.length != 0
+            ? `mobile-menu-${level}-${key}`
+            : ''
+        "
+        :href="item.href ?? '#'"
+        :target="item.target ?? '_blank'"
       >
         <span>{{ item.title }}</span>
         <span v-if="item.submenu && item.submenu.length != 0" class="float-end">
@@ -65,6 +78,7 @@ export default {
 
     &:hover {
       background-color: var(--bs-primary);
+      text-decoration: none;
     }
   }
 

@@ -6,6 +6,12 @@ $theme-colors: (
   "secondary": #ccd4da,
 );
 
+/* Cores secundárias */
+$colors: (
+  "link-color": #02a38e,
+  "link-hover-color": #02a38e,
+);
+
 /* Root */
 :root {
   --bs-border-radius: 0.275rem;
@@ -19,6 +25,11 @@ $theme-colors: (
 /* Atribuir cores ao :root */
 :root {
   @each $name, $color in $theme-colors {
+    --bs-#{$name}: #{$color};
+    --bs-#{$name}-rgb: #{toRGB($color)};
+  }
+
+  @each $name, $color in $colors {
     --bs-#{$name}: #{$color};
     --bs-#{$name}-rgb: #{toRGB($color)};
   }

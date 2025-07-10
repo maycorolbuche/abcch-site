@@ -6,6 +6,12 @@
   }
 }
 
+@for $i from 8 through 30 {
+  .fs-#{$i}px {
+    font-size: #{$i}px !important;
+  }
+}
+
 .w-content {
   width: fit-content !important;
 }
@@ -16,4 +22,12 @@
 
 .left-0 {
   left: 0px !important;
+}
+
+a {
+  text-decoration: none;
+  &:hover {
+    text-decoration: underline;
+    color: rgba(var(--bs-link-color-rgb), var(--bs-link-opacity, 1));
+  }
 }
