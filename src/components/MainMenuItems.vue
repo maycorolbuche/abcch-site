@@ -159,6 +159,7 @@ export default {
 
           &:hover {
             background-color: var(--bs-primary);
+            text-decoration: none;
           }
 
           &:hover:after {

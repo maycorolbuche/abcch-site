@@ -1,11 +1,16 @@
 <template>
   <BCard class="border-0">
-    <BCardTitle class="fs-4 fw-bold p-0 m-0 text-primary">
-      ÚLTIMAS NOTÍCIAS
+    <BCardTitle
+      class="fs-4 fw-bold p-0 m-0 text-primary d-flex align-items-end justify-content-between"
+    >
+      <span>ÚLTIMAS NOTÍCIAS</span>
+      <router-link class="fw-600 fs-13px" :to="{ name: 'news' }"
+        >+ Notícias</router-link
+      >
     </BCardTitle>
 
     <template v-if="data">
-      <BCard v-for="item in data" :key="item.id" no-body class="border-0 my-2">
+      <BCard v-for="item in data" :key="item.id" no-body class="border-0 my-3">
         <BRow class="g-0">
           <BCol md="4" class="d-flex align-items-center">
             <BCardImg
@@ -29,9 +34,8 @@
               <BCardText class="fs-14px">
                 <span v-html="item.resumo" />
                 <router-link
-                  :to="{ name: 'noticia', params: { id: item.id } }"
+                  :to="{ name: 'read_news', params: { id: item.id } }"
                   class="float-end fw-600 fs-13px"
-                  style="font-size: 13px"
                 >
                   Saiba mais
                 </router-link>
