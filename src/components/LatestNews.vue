@@ -87,14 +87,12 @@ export default {
 
             Storage.set("latest_news", data.data);
           }
-          console.log(status, data, self.data);
         }
       );
     },
   },
   mounted() {
     this.load_data();
-    console.log(import.meta.env.VITE_API_URL, Api.url());
   },
 };
 </script>
