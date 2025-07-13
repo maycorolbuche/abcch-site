@@ -9,6 +9,7 @@
             : ''
         "
         :to="item.to"
+        @click="clickMenu()"
       >
         {{ item.title }}
       </router-link>
@@ -24,6 +25,7 @@
           (item.submenu && item.submenu.length != 0 ? 'javascript:' : '#')
         "
         :target="item.href ? item.target ?? '_blank' : null"
+        @click="item.submenu && item.submenu.length != 0 ? null : clickMenu()"
       >
         <span>{{ item.title }}</span>
         <span v-if="item.submenu && item.submenu.length != 0" class="float-end">
@@ -35,7 +37,11 @@
         v-if="item.submenu && item.submenu.length != 0"
         :id="`mobile-menu-${level}-${key}`"
       >
-        <MainMenuMobileItems :items="item.submenu" :level="level + 1" />
+        <MainMenuMobileItems
+          :items="item.submenu"
+          :level="level + 1"
+          @menu="clickMenu"
+        />
       </BCollapse>
     </template>
     <hr />
@@ -57,6 +63,11 @@ export default {
     level: {
       type: Number,
       default: 1,
+    },
+  },
+  methods: {
+    async clickMenu() {
+      this.$emit("menu");
     },
   },
 };

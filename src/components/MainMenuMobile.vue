@@ -18,13 +18,17 @@
           </BLink>
         </div>
         <div class="collapse-area">
-          <MainMenuMobileItems :items="items" v-if="buildMenu" />
+          <MainMenuMobileItems
+            :items="items"
+            v-if="buildMenu"
+            @menu="closeCollapse"
+          />
         </div>
       </div>
     </BCollapse>
 
     <transition name="fade">
-      <div v-show="isCollapseOpen" class="menu-bg">fdsfsfds</div>
+      <div v-show="isCollapseOpen" class="menu-bg" />
     </transition>
   </div>
 </template>
@@ -77,13 +81,9 @@ export default {
   },
   mounted() {
     document.addEventListener("click", this.handleClickOutside);
-    this.unwatchRoute = this.$watch("$route", () => {
-      this.closeCollapse();
-    });
   },
   beforeDestroy() {
     document.removeEventListener("click", this.handleClickOutside);
-    if (this.unwatchRoute) this.unwatchRoute();
   },
 };
 </script>
