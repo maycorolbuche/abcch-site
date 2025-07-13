@@ -20,7 +20,7 @@
             : ''
         "
         :href="item.href ?? '#'"
-        :target="item.target ?? '_blank'"
+        :target="item.href ? item.target ?? '_blank' : null"
       >
         <span>{{ item.title }}</span>
         <span v-if="item.submenu && item.submenu.length != 0" class="float-end">
