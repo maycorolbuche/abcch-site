@@ -19,7 +19,11 @@
             ? `mobile-menu-${level}-${key}`
             : ''
         "
-        :href="item.href ?? '#'"
+        :href="
+          item.href ?? (item.submenu && item.submenu.length != 0)
+            ? 'javascript:'
+            : '#'
+        "
         :target="item.href ? item.target ?? '_blank' : null"
       >
         <span>{{ item.title }}</span>
