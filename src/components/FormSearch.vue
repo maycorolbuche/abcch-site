@@ -38,7 +38,7 @@ export default {
     margin: 0;
   }
 
-  input {
+  input.form-control {
     border-top-right-radius: 0;
     border-bottom-right-radius: 0;
   }

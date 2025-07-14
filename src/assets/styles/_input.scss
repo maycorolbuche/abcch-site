@@ -1,0 +1,6 @@
+input.form-control {
+  &:focus {
+    border-color: var(--bs-primary) !important;
+    box-shadow: none !important;
+  }
+}
