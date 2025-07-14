@@ -4,9 +4,9 @@
       class="fs-4 fw-bold p-0 m-0 text-primary d-flex align-items-end justify-content-between"
     >
       <span>ÚLTIMAS NOTÍCIAS</span>
-      <router-link class="fw-600 fs-13px" :to="{ name: 'news' }"
-        >+ Notícias</router-link
-      >
+      <router-link class="fw-600 fs-13px" :to="{ name: 'news' }">
+        + Notícias
+      </router-link>
     </BCardTitle>
 
     <template v-if="data">
