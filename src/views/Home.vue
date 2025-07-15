@@ -13,7 +13,7 @@
   <BeAssociate />
   <Separator secondary-color="#F0E9DF" />
 
-  <div style="background-color: #f0e9df">#CONSULTA</div>
+  <MakeYourInquiry />
 </template>
 
 <script>
@@ -23,12 +23,15 @@ import Banner from "@/components/Banner.vue";
 
 import LatestNews from "@/components/home/LatestNews.vue";
 import BeAssociate from "@/components/home/BeAssociate.vue";
+import MakeYourInquiry from "@/components/home/MakeYourInquiry.vue";
 
 export default {
   components: {
+    Banner,
     Separator,
     LatestNews,
     BeAssociate,
+    MakeYourInquiry,
   },
 };
 </script>
