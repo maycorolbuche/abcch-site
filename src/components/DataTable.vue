@@ -8,12 +8,12 @@
       <BSpinner v-if="searching" small class="me-2" />
       Buscando por: <b>{{ search }}</b>
     </div>
-    <div v-else-if="searching" class="fs-14px">
+    <div v-else-if="searching || !data" class="fs-14px">
       <BSpinner small class="me-2" />
       Carregando...
     </div>
 
-    <div v-if="!searching">
+    <div v-if="!searching && data">
       <BTable
         :busy="loading"
         striped
@@ -87,7 +87,6 @@ export default {
 
       this.abortController = new AbortController();
       const signal = this.abortController.signal;
-      console.log("signal", signal);
 
       this.loading = true;
 
