@@ -1,8 +1,20 @@
 <template>
   <div>
-    #BANNER.. . ,{{ type }},
-    <pre>  {{ data }}  </pre>
-    .
+    <Splide
+      v-if="data"
+      :options="{ rewind: true, autoplay: true, autoHeight: true }"
+    >
+      <SplideSlide v-for="item in data" :key="item.id">
+        <a
+          v-if="item.site_url"
+          :href="item.site_url"
+          :target="item.site_janela"
+        >
+          <img :src="item.imagem_url" style="width: 100%" />
+        </a>
+        <img v-else :src="item.imagem_url" style="width: 100%" />
+      </SplideSlide>
+    </Splide>
   </div>
 </template>
 

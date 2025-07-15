@@ -6,7 +6,9 @@
     </div>
   </div>
 
-  <Banner type="banner" />
+  <div class="px-4 mb-5">
+    <Banner type="banner" />
+  </div>
 
   <BeAssociate />
   <Separator secondary-color="#F0E9DF" />

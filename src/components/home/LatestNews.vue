@@ -12,7 +12,7 @@
     <template v-if="data">
       <BCard v-for="item in data" :key="item.id" no-body class="border-0 my-3">
         <BRow class="g-0">
-          <BCol md="4" class="d-flex align-items-center">
+          <BCol cols="4" class="d-flex align-items-center">
             <BCardImg
               :src="item.imagem_url"
               alt="Image"
@@ -21,7 +21,7 @@
               style="object-fit: cover; max-height: 100px; background: #eee"
             />
           </BCol>
-          <BCol md="8">
+          <BCol cols="8">
             <BCardBody class="py-0">
               <BCardTitle class="fs-5 text-truncate">
                 <span class="fw-700 text-uppercase">
