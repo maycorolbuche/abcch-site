@@ -2,10 +2,13 @@ import { createApp } from "vue";
 import App from "./App.vue";
 import router from "./router";
 
+/* Bootstrap */
 import { createBootstrap } from "bootstrap-vue-next";
 import "bootstrap/dist/css/bootstrap.css";
 import "bootstrap-vue-next/dist/bootstrap-vue-next.css";
 
+/* Slider */
+/* https://splidejs.com/ */
 import VueSplide from "@splidejs/vue-splide";
 import "@splidejs/vue-splide/css";
 
