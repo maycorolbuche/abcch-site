@@ -36,7 +36,7 @@
 <script>
 import MenuIcon from "@/components/icons/Menu.vue";
 import CloseIcon from "@/components/icons/Close.vue";
-import MainMenuMobileItems from "@/components/MainMenuMobileItems.vue";
+import MainMenuMobileItems from "@/components/menu/MainMenuMobileItems.vue";
 
 export default {
   components: {

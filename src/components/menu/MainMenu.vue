@@ -5,7 +5,7 @@
 </template>
 
 <script>
-import MainMenuItems from "@/components/MainMenuItems.vue";
+import MainMenuItems from "@/components/menu/MainMenuItems.vue";
 
 export default {
   components: {

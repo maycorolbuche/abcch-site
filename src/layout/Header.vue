@@ -45,8 +45,8 @@
 </template>
 
 <script>
-import MainMenu from "@/components/MainMenu.vue";
-import MainMenuMobile from "@/components/MainMenuMobile.vue";
+import MainMenu from "@/components/menu/MainMenu.vue";
+import MainMenuMobile from "@/components/menu/MainMenuMobile.vue";
 import Logo from "@/components/Logo.vue";
 
 import MagnifyIcon from "@/components/icons/Magnify.vue";
