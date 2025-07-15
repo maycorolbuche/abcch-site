@@ -1,14 +1,28 @@
 <template>
-  <div class="root-element">
-    <div />
-    <div />
+  <div class="root-element" :style="{ background: primaryColor }">
+    <div :style="{ background: secondaryColor }" />
+    <div :style="{ background: secondaryColor }" />
   </div>
 </template>
+
+<script>
+export default {
+  props: {
+    primaryColor: {
+      type: String,
+      default: "var(--bs-primary)",
+    },
+    secondaryColor: {
+      type: String,
+      default: "var(--bs-secondary)",
+    },
+  },
+};
+</script>
 
 <style lang="scss" scoped>
 .root-element {
   height: 50px;
-  background: var(--bs-primary);
 
   display: flex;
   align-items: stretch;
@@ -17,7 +31,6 @@
 
   > div {
     width: 50%;
-    background: var(--bs-secondary);
 
     &:first-child {
       border-radius: 0 50px 0 0;
