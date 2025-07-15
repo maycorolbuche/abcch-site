@@ -49,7 +49,7 @@ export default {
     let signal = options?.__signal;
 
     if (options?.__signal) {
-      delete options.signal;
+      delete options.__signal;
     }
 
     if (options) {

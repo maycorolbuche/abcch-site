@@ -1,9 +1,19 @@
 <template>
-  <div class="bg-primary my-3 p-4">
-    <div v-if="title" class="text-center text-white fw-700 fs-2">
-      {{ title }}
+  <div>
+    <div v-if="!loading" class="bg-primary my-3 p-4">
+      <div v-if="title" class="text-center text-white fw-700 fs-2">
+        {{ title }}
+      </div>
+      <slot />
     </div>
-    <slot />
+    <BPlaceholder
+      v-else
+      variant="primary"
+      width="100%"
+      class="my-3 p-4"
+      animation="glow"
+      style="height: 130px"
+    />
   </div>
 </template>
 
@@ -11,6 +21,7 @@
 export default {
   props: {
     title: String,
+    loading: Boolean,
   },
 };
 </script>

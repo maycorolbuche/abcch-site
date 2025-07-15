@@ -69,9 +69,15 @@ import Storage from "@/helpers/Storage.js";
 export default {
   data: () => ({
     data: null,
+    abort_controller: null,
   }),
   methods: {
     async load_data() {
+      this.abort();
+
+      this.abort_controller = new AbortController();
+      const signal = this.abort_controller.signal;
+
       this.data = Storage.get("latest_news");
 
       let self = this;
@@ -80,6 +86,7 @@ export default {
         "/noticias",
         {
           limit: 3,
+          __signal: signal,
         },
         function (status, data) {
           if (status) {
@@ -90,9 +97,17 @@ export default {
         }
       );
     },
+    abort() {
+      if (this.abort_controller) {
+        this.abort_controller.abort();
+      }
+    },
   },
   mounted() {
     this.load_data();
+  },
+  beforeUnmount() {
+    this.abort();
   },
 };
 </script>

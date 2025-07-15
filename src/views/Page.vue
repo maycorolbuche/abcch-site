@@ -1,13 +1,9 @@
 <template>
   <div>
-    <TitleBar :title="data?.titulo" :loading="!data ? true : false">
-      <div class="text-end text-white px-3 fs-14px fw-500">
-        {{ data?.data_publicacao_br }}
-      </div>
-    </TitleBar>
+    <TitleBar :title="data?.site_titulo" :loading="!data ? true : false" />
 
     <template v-if="data">
-      <div v-html="data?.texto" class="px-5" />
+      <div v-html="data?.site_html" class="px-5" />
     </template>
 
     <template v-else>
@@ -25,14 +21,14 @@ import TitleBar from "@/components/TitleBar.vue";
 
 export default {
   props: {
-    id: Number,
+    menu: String,
+    submenu: String,
   },
   components: {
     TitleBar,
   },
   data: () => ({
     data: null,
-    abort_controller: null,
   }),
   methods: {
     async load_data() {
@@ -44,7 +40,7 @@ export default {
       let self = this;
 
       await Api.get(
-        "/noticias/" + this.id,
+        "/pagina/" + this.menu + "/" + (this.submenu ?? ""),
         {
           __signal: signal,
         },

@@ -26,7 +26,7 @@
         pill
         variant="white"
         class="text-primary text-uppercase fw-600 px-4"
-        :to="{ name: 'associate' }"
+        :to="{ name: 'page', params: { menu: 'associe' } }"
       >
         Clique Aqui
       </BButton>

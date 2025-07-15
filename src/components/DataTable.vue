@@ -70,7 +70,7 @@ export default {
     current_page: null,
     pagination_limit: 10,
     search: "",
-    abortController: null,
+    abort_controller: null,
   }),
   watch: {
     current_page(newVal) {
@@ -81,12 +81,10 @@ export default {
   },
   methods: {
     async load_data(options = {}) {
-      if (this.abortController) {
-        this.abortController.abort();
-      }
+      this.abort();
 
-      this.abortController = new AbortController();
-      const signal = this.abortController.signal;
+      this.abort_controller = new AbortController();
+      const signal = this.abort_controller.signal;
 
       this.loading = true;
 
@@ -137,6 +135,11 @@ export default {
         this.load_data({ current_page: 1 });
       }
     },
+    abort() {
+      if (this.abort_controller) {
+        this.abort_controller.abort();
+      }
+    },
   },
   mounted() {
     this.search = Storage.get("dt-s-" + this.apiUrl, "");
@@ -146,6 +149,8 @@ export default {
   },
   beforeUnmount() {
     window.removeEventListener("resize", this.updatePagination_limit);
+
+    this.abort();
   },
 };
 </script>
