@@ -75,12 +75,12 @@ export default {
   watch: {
     current_page(newVal) {
       if (this.data?.current_page != newVal) {
-        this.load_data({ current_page: newVal });
+        this.loadData({ current_page: newVal });
       }
     },
   },
   methods: {
-    async load_data(options = {}) {
+    async loadData(options = {}) {
       this.abort();
 
       this.abort_controller = new AbortController();
@@ -114,7 +114,7 @@ export default {
         }
       );
     },
-    updatePagination_limit() {
+    updatePaginationLimit() {
       const width = window.innerWidth;
 
       if (width < 350) {
@@ -132,7 +132,7 @@ export default {
         this.search = value;
         this.searching = true;
         Storage.set("dt-s-" + this.apiUrl, this.search);
-        this.load_data({ current_page: 1 });
+        this.loadData({ current_page: 1 });
       }
     },
     abort() {
@@ -143,12 +143,12 @@ export default {
   },
   mounted() {
     this.search = Storage.get("dt-s-" + this.apiUrl, "");
-    this.load_data();
-    this.updatePagination_limit();
-    window.addEventListener("resize", this.updatePagination_limit);
+    this.loadData();
+    this.updatePaginationLimit();
+    window.addEventListener("resize", this.updatePaginationLimit);
   },
   beforeUnmount() {
-    window.removeEventListener("resize", this.updatePagination_limit);
+    window.removeEventListener("resize", this.updatePaginationLimit);
 
     this.abort();
   },

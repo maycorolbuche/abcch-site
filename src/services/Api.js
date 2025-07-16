@@ -1,4 +1,5 @@
 import Storage from "@/helpers/Storage.js";
+let cache = {};
 
 export default {
   get(route, options = null, callback = function () {}) {
@@ -46,6 +47,8 @@ export default {
   ) {
     let params = "";
 
+    //console.log("cachedEvents", cache);
+
     let signal = options?.__signal;
 
     if (options?.__signal) {
@@ -61,6 +64,10 @@ export default {
     }
 
     let url = `${this.url()}/${route}${params}`;
+    if (cache[url]) {
+      callback(true, cache[url]);
+      return true;
+    }
 
     let headers = {
       "Content-Type": "application/json",
@@ -92,6 +99,8 @@ export default {
         return false;
       }
 
+      //Armazena em cache
+      cache[url] = data;
       callback(true, data);
       return true;
     } else if (response) {

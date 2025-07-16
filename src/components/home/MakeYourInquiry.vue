@@ -78,14 +78,17 @@ export default {
         {
           title: "Animais",
           image: animalsImg,
+          to: { name: "home" },
         },
         {
           title: "Regulamentos",
           image: regulationsImg,
+          to: { name: "home" },
         },
         {
           title: "Rankings",
           image: rankingsImg,
+          to: { name: "home" },
         },
       ];
     },

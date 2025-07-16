@@ -1,7 +1,5 @@
 <template>
-  <div>
-    <TitleBar title="Notícias" />
-
+  <Page title="Notícias">
     <div class="px-5">
       <DataTable
         api-url="/noticias"
@@ -27,16 +25,17 @@
         ]"
       />
     </div>
-  </div>
+  </Page>
 </template>
 
 <script>
-import TitleBar from "@/components/TitleBar.vue";
+import Page from "@/components/Page.vue";
+
 import DataTable from "@/components/DataTable.vue";
 
 export default {
   components: {
-    TitleBar,
+    Page,
     DataTable,
   },
 };

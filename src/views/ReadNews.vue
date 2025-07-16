@@ -35,7 +35,7 @@ export default {
     abort_controller: null,
   }),
   methods: {
-    async load_data() {
+    async loadData() {
       this.abort();
 
       this.abort_controller = new AbortController();
@@ -63,7 +63,7 @@ export default {
     },
   },
   mounted() {
-    this.load_data();
+    this.loadData();
   },
   beforeUnmount() {
     this.abort();
