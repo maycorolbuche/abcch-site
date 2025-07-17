@@ -2,34 +2,46 @@
   <Page title="Consulta Genealógica">
     <div class="px-5">
       <DataTable
-        api-url="/estatisticas"
+        api-url="/animais"
         :params="{ tipo, ano, nome }"
+        :to-load="nome != ''"
         :searchable="false"
         :fields="[
           {
-            key: 'classificacao',
-            label: 'Posição',
-            class: 'text-end',
-          },
-          {
-            key: 'animal_nome',
+            key: 'NmAnimal',
             label: 'Animal',
           },
           {
-            key: 'animal_registro',
+            key: 'NrRegistration',
             label: 'Registro',
           },
           {
-            key: 'pontuacao',
-            label: 'Pontos',
-            class: 'text-end',
+            key: 'DtFoaledBr',
+            label: 'Dt. Nasc.',
+            class: 'text-center',
+          },
+          {
+            key: 'NmGender',
+            label: 'Sexo',
+          },
+          {
+            key: 'NmAnimalSire',
+            label: 'Pai',
+          },
+          {
+            key: 'NmAnimalDam',
+            label: 'Mãe',
+          },
+          {
+            key: 'NmUserOwner',
+            label: 'Proprietário',
           },
         ]"
         @loading="setLoading"
       >
         <BRow class="mb-4">
-          <BCol :cols="12" :md="10" class="pt-2">
-            <BFormGroup label="Ano">
+          <BCol :cols="12" :md="9" class="pt-2">
+            <BFormGroup label="Tipo">
               <BFormSelect
                 v-model="tipo"
                 value-field="id"
@@ -37,7 +49,7 @@
               />
             </BFormGroup>
           </BCol>
-          <BCol :cols="12" :md="2" class="pt-2">
+          <BCol :cols="12" :md="3" class="pt-2">
             <BFormGroup label="Ano">
               <BFormSelect v-model="ano" :options="ano_options" />
             </BFormGroup>
@@ -64,13 +76,17 @@
             Tipo: <b>{{ tipo_item }}</b>
           </div>
           <div>
-            Ano: <b>{{ ano == 0 ? "Acumulado" : ano }}</b>
+            Ano: <b>{{ ano == 0 ? "Todos os Anos" : ano }}</b>
           </div>
           <div v-if="nome">
             Animal: <b>{{ nome }}</b>
           </div>
         </div>
       </DataTable>
+
+      <BAlert :model-value="nome == ''" variant="warning">
+        Informe o nome, o registro ou microchip
+      </BAlert>
     </div>
   </Page>
 </template>
@@ -91,7 +107,7 @@ export default {
     FormSearch,
   },
   data: () => ({
-    tipo: 0,
+    tipo: 1,
     ano: 0,
     nome: "",
     tipo_lista: [],
@@ -104,9 +120,9 @@ export default {
       const currentYear = new Date().getFullYear();
       const anos = [];
 
-      anos.push({ value: 0, text: "Acumulado" });
+      anos.push({ value: 0, text: "Todos os Anos" });
 
-      for (let ano = currentYear; ano >= 2006; ano--) {
+      for (let ano = currentYear; ano >= 1976; ano--) {
         anos.push({ value: ano, text: String(ano) });
       }
 
@@ -137,11 +153,11 @@ export default {
       this.abort_controller = new AbortController();
       const signal = this.abort_controller.signal;
 
-      this.tipo_lista = Storage.get("estatisticas/types", []);
+      this.tipo_lista = Storage.get("animais/types", []);
 
       let self = this;
       await Api.get(
-        "/estatisticas/types",
+        "/animais/types",
         {
           __signal: signal,
         },
@@ -149,7 +165,7 @@ export default {
           if (status) {
             self.tipo_lista = data;
 
-            Storage.set("estatisticas/types", data);
+            Storage.set("animais/types", data);
           }
         }
       );

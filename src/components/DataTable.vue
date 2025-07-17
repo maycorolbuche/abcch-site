@@ -62,6 +62,7 @@
       </div>
 
       <BPagination
+        v-if="data?.total"
         v-model="current_page"
         :total-rows="data?.total"
         :per-page="data?.per_page"
@@ -99,9 +100,13 @@ export default {
       type: Object,
       default: {},
     },
+    toLoad: {
+      type: Boolean,
+      default: true,
+    },
   },
   data: () => ({
-    loading: false,
+    loading_count: 0,
     searching: false,
     data: null,
     current_page: null,
@@ -109,6 +114,11 @@ export default {
     search: "",
     abort_controller: null,
   }),
+  computed: {
+    loading() {
+      return this.loading_count > 0;
+    },
+  },
   watch: {
     current_page(newVal) {
       if (this.data?.current_page != newVal) {
@@ -116,10 +126,14 @@ export default {
       }
     },
     params() {
-      this.loadData();
+      this.loadData({ current_page: 1 });
     },
     loading() {
       this.$emit("loading", this.loading);
+    },
+    toLoad() {
+      this.data.current_page = 1;
+      this.loadData({ current_page: 1 });
     },
   },
   methods: {
@@ -129,7 +143,15 @@ export default {
       this.abort_controller = new AbortController();
       const signal = this.abort_controller.signal;
 
-      this.loading = true;
+      if (!this.toLoad) {
+        this.loading_count = 0;
+        this.searching = false;
+        this.data = [];
+        Storage.set("dt-" + this.apiUrl, this.data);
+        return;
+      }
+
+      this.loading_count++;
 
       this.data = Storage.get("dt-" + this.apiUrl);
 
@@ -146,14 +168,15 @@ export default {
           ...self.params,
         },
         function (status, data) {
-          self.loading = false;
+          self.loading_count--;
 
           if (status) {
             self.searching = false;
             self.data = data;
             self.current_page = data.current_page;
-
             Storage.set("dt-" + self.apiUrl, data);
+          } else {
+            self.data = [];
           }
         }
       );
