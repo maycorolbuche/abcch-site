@@ -17,23 +17,25 @@
     </div>
 
     <div v-if="!searching && data">
-      <BTable
-        :busy="loading"
-        striped
-        hover
-        :items="data?.data"
-        :fields="fields"
-      >
-        <template #cell(link)="row">
-          <router-link
-            v-if="routeName"
-            :to="{ name: routeName, params: { id: row.item[routeParamId] } }"
-            class="float-end fw-600 fs-13px text-nowrap"
-          >
-            {{ routeLabel || "Acessar" }}
-          </router-link>
-        </template>
-      </BTable>
+      <div class="overflow-auto">
+        <BTable
+          :busy="loading"
+          striped
+          hover
+          :items="data?.data"
+          :fields="fields"
+        >
+          <template #cell(link)="row">
+            <router-link
+              v-if="routeName"
+              :to="{ name: routeName, params: { id: row.item[routeParamId] } }"
+              class="float-end fw-600 fs-13px text-nowrap"
+            >
+              {{ routeLabel || "Acessar" }}
+            </router-link>
+          </template>
+        </BTable>
+      </div>
 
       <BPagination
         v-model="current_page"
