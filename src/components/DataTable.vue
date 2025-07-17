@@ -3,7 +3,9 @@
     <slot />
 
     <div v-if="searchable">
-      <FormSearch @search="searchFor" />
+      <BFormGroup label="Pesquisar">
+        <FormSearch @search="searchFor" />
+      </BFormGroup>
       <div class="my-3" />
     </div>
 
@@ -25,7 +27,29 @@
           :items="data?.data"
           :fields="fields"
         >
-          <template #cell(link)="row">
+          <template #cell()="{ item, field }">
+            <router-link
+              v-if="field?.route"
+              :to="{
+                name: field?.route?.to,
+                params: route_params(field?.route?.params, item),
+              }"
+              :class="field?.route?.class"
+            >
+              {{ field?.prefix }}
+              {{ field?.text }}
+              {{ item[field?.key] ?? "" }}
+              {{ field?.sufix }}
+            </router-link>
+            <span v-else>
+              {{ field?.prefix }}
+              {{ field?.text }}
+              {{ item[field?.key] ?? "" }}
+              {{ field?.sufix }}
+            </span>
+          </template>
+
+          <template #cell(__link)="row">
             <router-link
               v-if="routeName"
               :to="{ name: routeName, params: { id: row.item[routeParamId] } }"
@@ -159,6 +183,13 @@ export default {
       if (this.abort_controller) {
         this.abort_controller.abort();
       }
+    },
+    route_params(params, item) {
+      let p = {};
+      Object.keys(params).map((param) => {
+        p[param] = item[params[param]] ?? "";
+      });
+      return p;
     },
   },
   mounted() {

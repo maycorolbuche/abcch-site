@@ -1,5 +1,5 @@
 <template>
-  <Page title="Estatísticas">
+  <Page title="Consulta Genealógica">
     <div class="px-5">
       <DataTable
         api-url="/estatisticas"
@@ -10,7 +10,6 @@
             key: 'classificacao',
             label: 'Posição',
             class: 'text-end',
-            sufix: 'º',
           },
           {
             key: 'animal_nome',
@@ -30,7 +29,7 @@
       >
         <BRow class="mb-4">
           <BCol :cols="12" :md="10" class="pt-2">
-            <BFormGroup label="Tipo">
+            <BFormGroup label="Ano">
               <BFormSelect
                 v-model="tipo"
                 value-field="id"

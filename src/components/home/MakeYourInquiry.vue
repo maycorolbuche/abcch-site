@@ -78,7 +78,7 @@ export default {
         {
           title: "Animais",
           image: animalsImg,
-          to: { name: "home" },
+          to: { name: "animals" },
         },
         {
           title: "Regulamentos",

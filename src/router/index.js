@@ -24,6 +24,11 @@ const router = createRouter({
       name: "statistic",
       component: () => import("../views/Statistic.vue"),
     },
+    {
+      path: "/studbook",
+      name: "animals",
+      component: () => import("../views/Animals.vue"),
+    },
 
     {
       path: "/:menu/:submenu?",

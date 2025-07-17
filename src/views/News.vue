@@ -3,24 +3,25 @@
     <div class="px-5">
       <DataTable
         api-url="/noticias"
-        route-name="read_news"
-        route-param-id="id"
-        route-label="Ler Notícia"
         :fields="[
           {
             key: 'titulo',
             label: 'Título',
-            class: 'fs-14px',
           },
           {
             key: 'data_publicacao_br',
             label: 'Data',
-            class: 'text-end fs-14px',
+            class: 'text-end',
           },
           {
             key: 'link',
             label: '',
-            class: 'text-end fs-14px',
+            text: 'Ler Notícia',
+            route: {
+              to: 'read_news',
+              params: { id: 'id' },
+              class: 'float-end fw-600 fs-13px text-nowrap',
+            },
           },
         ]"
       />
