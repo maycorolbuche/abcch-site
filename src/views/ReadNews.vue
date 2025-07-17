@@ -52,7 +52,6 @@ export default {
           if (status) {
             self.data = data;
           }
-          console.log(status, data, self.data);
         }
       );
     },

@@ -92,6 +92,7 @@ export default {
       body,
       signal,
     }).catch((err) => {
+      console.log("[01]==>", err);
       callback(false, err);
       return false;
     });
@@ -99,6 +100,7 @@ export default {
     if (response && response.ok) {
       let data = await response.json();
       if (data.error != undefined && data.error != "") {
+        console.log("[02]==>", data.error);
         callback(false, data.error);
         return false;
       }
@@ -108,6 +110,7 @@ export default {
       callback(true, data);
       return true;
     } else if (response) {
+      console.log("[03]==>", data.erro);
       let data = await response.json();
       callback(false, data.error);
       return false;
