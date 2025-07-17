@@ -48,6 +48,7 @@
             <FormSearch
               @search="setAnimal"
               label="Informe o nome, o registro ou microchip"
+              placeholder="Nome, registro ou microchip"
             />
           </BCol>
         </BRow>
