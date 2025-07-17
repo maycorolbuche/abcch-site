@@ -73,7 +73,7 @@ export default {
         {
           title: "Estatísticas",
           image: statisticsImg,
-          to: { name: "home" },
+          to: { name: "statistic" },
         },
         {
           title: "Animais",

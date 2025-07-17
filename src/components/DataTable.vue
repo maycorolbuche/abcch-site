@@ -1,8 +1,11 @@
 <template>
   <div class="pb-3">
-    <FormSearch :loading="searching" @search="searchFor" />
+    <slot />
 
-    <div class="my-3" />
+    <div v-if="searchable">
+      <FormSearch @search="searchFor" />
+      <div class="my-3" />
+    </div>
 
     <div v-if="search" class="fs-14px">
       <BSpinner v-if="searching" small class="me-2" />
@@ -62,6 +65,14 @@ export default {
     routeName: String,
     routeParamId: String,
     routeLabel: String,
+    searchable: {
+      type: Boolean,
+      default: true,
+    },
+    params: {
+      type: Object,
+      default: {},
+    },
   },
   data: () => ({
     loading: false,
@@ -77,6 +88,12 @@ export default {
       if (this.data?.current_page != newVal) {
         this.loadData({ current_page: newVal });
       }
+    },
+    params() {
+      this.loadData();
+    },
+    loading() {
+      this.$emit("loading", this.loading);
     },
   },
   methods: {
@@ -100,6 +117,7 @@ export default {
           search: this.search,
           page: this.current_page,
           __signal: signal,
+          ...self.params,
         },
         function (status, data) {
           self.loading = false;

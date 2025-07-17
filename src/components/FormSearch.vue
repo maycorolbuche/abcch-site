@@ -1,8 +1,8 @@
 <template>
   <BForm @submit.prevent="searchFor">
-    <BFormGroup label="Pesquisar" class="form-search">
+    <BFormGroup :label="label" class="form-search">
       <div class="d-flex align-items-center flex-row">
-        <BFormInput v-model="search" type="text" placeholder="Pesquisar" />
+        <BFormInput v-model="search" type="text" :placeholder="placeholder" />
         <BButton variant="primary" @click="searchFor()">
           <MagnifyIcon width="20px" color="#FFF" />
         </BButton>
@@ -18,6 +18,16 @@ export default {
   components: {
     MagnifyIcon,
   },
+  props: {
+    label: {
+      type: String,
+      default: "Pesquisar",
+    },
+    placeholder: {
+      type: String,
+      default: "Pesquisar",
+    },
+  },
   data: () => ({
     search: "",
   }),
@@ -31,13 +41,6 @@ export default {
 
 <style lang="scss">
 .form-search {
-  label {
-    text-align: center;
-    font-weight: 700;
-    padding: 0;
-    margin: 0;
-  }
-
   input.form-control {
     border-top-right-radius: 0;
     border-bottom-right-radius: 0;

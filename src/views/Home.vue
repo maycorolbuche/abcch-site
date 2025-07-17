@@ -1,10 +1,10 @@
 <template>
-  <div class="row">
-    <div class="col-12 col-md-6">#BANNERS</div>
-    <div class="col-12 col-md-6">
+  <BRow>
+    <BCol :cols="12" :md="6">#BANNERS</BCol>
+    <BCol :cols="12" :md="6">
       <LatestNews />
-    </div>
-  </div>
+    </BCol>
+  </BRow>
 
   <div class="px-4 mb-5">
     <Banner type="banner" />

@@ -19,6 +19,11 @@ const router = createRouter({
       component: () => import("../views/ReadNews.vue"),
       props: true,
     },
+    {
+      path: "/estatistica",
+      name: "statistic",
+      component: () => import("../views/Statistic.vue"),
+    },
 
     {
       path: "/:menu/:submenu?",
