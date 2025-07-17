@@ -54,7 +54,7 @@
         </BRow>
 
         <div v-if="loading" class="fs-14px">
-          <BSpinner small class="me-2" />Carregando
+          <BSpinner small class="me-2" />Carregando...
         </div>
         <div
           v-else
