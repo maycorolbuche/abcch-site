@@ -92,7 +92,7 @@ export default {
       body,
       signal,
     }).catch((err) => {
-      callback(false, `Erro ao estabelecer conexão com o servidor!`);
+      callback(false, err);
       return false;
     });
 
