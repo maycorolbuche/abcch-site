@@ -52,7 +52,7 @@ export default {
       let self = this;
 
       await Api.get(
-        "/pagina/" + this.menu + (this.submenu ? "/" + this.submenu : ""),
+        "/pagina/" + this.menu + "/" + (this.submenu ?? ""),
         {
           __signal: signal,
         },

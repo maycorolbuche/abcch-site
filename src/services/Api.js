@@ -63,6 +63,10 @@ export default {
       route = route.slice(1);
     }
 
+    if (route.endsWith("/")) {
+      route = route.slice(0, -1);
+    }
+
     let url = `${this.url()}/${route}${params}`;
     if (cache[url]) {
       callback(true, cache[url]);
