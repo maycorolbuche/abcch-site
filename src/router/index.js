@@ -29,6 +29,12 @@ const router = createRouter({
       name: "animals",
       component: () => import("../views/Animals.vue"),
     },
+    {
+      path: "/animal/:id",
+      name: "animal",
+      component: () => import("../views/Animal.vue"),
+      props: true,
+    },
 
     {
       path: "/:menu/:submenu?",

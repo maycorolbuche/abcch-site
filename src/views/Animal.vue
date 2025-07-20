@@ -1,50 +1,47 @@
 <template>
   <div>
-    <TitleBar :title="data?.titulo" :loading="!data ? true : false">
-      <div class="text-end text-white px-3 fs-14px fw-500">
-        {{ data?.data_publicacao_br }}
-      </div>
-    </TitleBar>
+    <TitleBar :title="data?.NmAnimal" :loading="!data ? true : false" />
 
-    <template v-if="data">
-      <div v-html="data?.texto" class="px-5" />
-    </template>
-
-    <template v-else>
-      <div class="px-5 py-2">
-        <BPlaceholder v-for="n in 3" :key="n" width="100%" animation="glow" />
-      </div>
-    </template>
+    <div class="overflow-auto px-5" :style="{ opacity: data ? 1 : 0.5 }">
+      <FamilyTree
+        :sire="data?.lstPedigree?.sire"
+        :dam="data?.lstPedigree?.dam"
+      />
+    </div>
+    {{ id }}
+    <pre>{{ data?.lstPedigree }}</pre>
   </div>
 </template>
 
 <script>
 import Api from "@/services/Api.js";
 
-import TitleBar from "@/components/TitleBar.vue";
+import Page from "@/components/Page.vue";
+
+import FamilyTree from "@/components/FamilyTree.vue";
 
 export default {
   components: {
-    TitleBar,
+    Page,
+    FamilyTree,
   },
   props: {
-    id: Number,
+    id: String,
   },
   data: () => ({
     data: null,
     abort_controller: null,
   }),
   methods: {
-    async loadData() {
+    async loadData(options = {}) {
       this.abort();
 
       this.abort_controller = new AbortController();
       const signal = this.abort_controller.signal;
 
       let self = this;
-
       await Api.get(
-        "/noticias/" + this.id,
+        "/animais/" + this.id,
         {
           __signal: signal,
         },

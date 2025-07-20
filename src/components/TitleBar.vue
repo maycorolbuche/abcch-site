@@ -12,7 +12,7 @@
       width="100%"
       class="my-3 p-4"
       animation="glow"
-      style="height: 130px"
+      style="height: 100px"
     />
   </div>
 </template>

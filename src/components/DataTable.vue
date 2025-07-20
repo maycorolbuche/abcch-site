@@ -48,16 +48,6 @@
               {{ field?.sufix }}
             </span>
           </template>
-
-          <template #cell(__link)="row">
-            <router-link
-              v-if="routeName"
-              :to="{ name: routeName, params: { id: row.item[routeParamId] } }"
-              class="float-end fw-600 fs-13px text-nowrap"
-            >
-              {{ routeLabel || "Acessar" }}
-            </router-link>
-          </template>
         </BTable>
       </div>
 

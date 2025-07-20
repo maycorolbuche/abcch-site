@@ -10,6 +10,10 @@
           {
             key: 'NmAnimal',
             label: 'Animal',
+            route: {
+              to: 'animal',
+              params: { id: 'CdToken' },
+            },
           },
           {
             key: 'NrRegistration',
