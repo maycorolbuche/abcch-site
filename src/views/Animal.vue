@@ -4,6 +4,11 @@
 
     <BTabs class="mx-5" content-class="p-2">
       <BTab title="Detalhes do Animal" active>
+        <div class="float-end">
+          <BButton variant="danger" :disabled="!data" @click="downloadPdf">
+            Baixar PDF
+          </BButton>
+        </div>
         <div class="pb-3" style="columns: 400px">
           <div
             v-for="detail in details"
@@ -151,6 +156,10 @@ export default {
       if (this.abort_controller) {
         this.abort_controller.abort();
       }
+    },
+    downloadPdf() {
+      const url = `${Api.url()}/animais/${this.id}/print`;
+      window.open(url, "_blank");
     },
   },
   mounted() {
