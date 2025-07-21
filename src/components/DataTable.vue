@@ -82,6 +82,7 @@ export default {
     routeName: String,
     routeParamId: String,
     routeLabel: String,
+    items: Array,
     searchable: {
       type: Boolean,
       default: true,
@@ -118,6 +119,9 @@ export default {
     params() {
       this.loadData({ current_page: 1 });
     },
+    items() {
+      this.loadData({ current_page: 1 });
+    },
     loading() {
       this.$emit("loading", this.loading);
     },
@@ -128,48 +132,53 @@ export default {
   },
   methods: {
     async loadData(options = {}) {
-      this.abort();
+      if (this.items) {
+        this.data = { data: this.items };
+      } else if (this.apiUrl) {
+        this.abort();
 
-      this.abort_controller = new AbortController();
-      const signal = this.abort_controller.signal;
+        this.abort_controller = new AbortController();
+        const signal = this.abort_controller.signal;
 
-      if (!this.toLoad) {
-        this.loading_count = 0;
-        this.searching = false;
-        this.data = [];
-        Storage.set("dt-" + this.apiUrl, this.data);
-        return;
-      }
-
-      this.loading_count++;
-
-      this.data = Storage.get("dt-" + this.apiUrl);
-
-      this.current_page = options?.current_page ?? this.data?.current_page ?? 1;
-
-      let self = this;
-      await Api.get(
-        this.apiUrl,
-        {
-          limit: 30,
-          search: this.search,
-          page: this.current_page,
-          __signal: signal,
-          ...self.params,
-        },
-        function (status, data) {
-          self.loading_count--;
-
-          if (status) {
-            self.searching = false;
-            self.data = data;
-            self.current_page = data.current_page;
-            Storage.set("dt-" + self.apiUrl, data);
-          } else {
-            self.data = [];
-          }
+        if (!this.toLoad) {
+          this.loading_count = 0;
+          this.searching = false;
+          this.data = [];
+          Storage.set("dt-" + this.apiUrl, this.data);
+          return;
         }
-      );
+
+        this.loading_count++;
+
+        this.data = Storage.get("dt-" + this.apiUrl);
+
+        this.current_page =
+          options?.current_page ?? this.data?.current_page ?? 1;
+
+        let self = this;
+        await Api.get(
+          this.apiUrl,
+          {
+            limit: 30,
+            search: this.search,
+            page: this.current_page,
+            __signal: signal,
+            ...self.params,
+          },
+          function (status, data) {
+            self.loading_count--;
+
+            if (status) {
+              self.searching = false;
+              self.data = data;
+              self.current_page = data.current_page;
+              Storage.set("dt-" + self.apiUrl, data);
+            } else {
+              self.data = [];
+            }
+          }
+        );
+      }
     },
     updatePaginationLimit() {
       const width = window.innerWidth;

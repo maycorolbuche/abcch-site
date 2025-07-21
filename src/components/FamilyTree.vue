@@ -1,5 +1,12 @@
 <template>
-  <div :data-level="level" class="block-container">
+  <div
+    :data-level="level"
+    class="block-container"
+    :class="{
+      'ps-5': level == 1,
+      'pe-5': level == maxLevel,
+    }"
+  >
     <div
       v-for="(block, index) in blocks"
       :key="index"
@@ -41,6 +48,12 @@
             :data-level="level"
             :data-index="index"
           >
+            <div v-if="level == 1" class="block-icon" :data-index="index">
+              <div>
+                <GenderMale v-if="index == 0" width="90px" color="#FFF" />
+                <GenderFemale v-else width="90px" color="#FFF" />
+              </div>
+            </div>
             <router-link
               v-if="data[index]"
               :to="{
@@ -56,8 +69,9 @@
         </div>
       </div>
       <FamilyTree
-        v-if="level < 4"
+        v-if="level < maxLevel"
         :level="level + 1"
+        :max-level="maxLevel"
         :top="top && index == 0"
         :sire="data[index]?.sire"
         :dam="data[index]?.dam"
@@ -67,8 +81,19 @@
 </template>
 
 <script>
+import GenderMale from "@/components/icons/GenderMale.vue";
+import GenderFemale from "@/components/icons/GenderFemale.vue";
+
 export default {
+  components: {
+    GenderMale,
+    GenderFemale,
+  },
   props: {
+    maxLevel: {
+      type: Number,
+      default: 4,
+    },
     level: {
       type: Number,
       default: 1,
@@ -108,6 +133,37 @@ export default {
     transition: box-shadow 0.1s ease-in-out 0s;
     &:hover {
       box-shadow: 0px 0px 20px 0px rgba(0, 0, 0, 0.5);
+    }
+
+    .block-icon {
+      position: absolute;
+      left: 0;
+      width: 60px;
+      height: 60px;
+      overflow: hidden;
+
+      &[data-index="0"] {
+        bottom: 7px;
+        > div {
+          bottom: -30px;
+          left: -30px;
+        }
+      }
+      &[data-index="1"] {
+        top: 7px;
+        > div {
+          top: -35px;
+          left: -35px;
+
+          svg {
+            transform: rotate(320deg);
+          }
+        }
+      }
+
+      > div {
+        position: absolute;
+      }
     }
   }
 
