@@ -18,21 +18,31 @@
         class="social-icons h-50 d-flex justify-content-end"
         style="gap: 20px"
       >
-        <BLink href="">
+        <!--
+        <BLink href="" target="_blank">
           <MagnifyIcon width="26px" />
         </BLink>
-        <BLink href="">
+        -->
+        <BLink
+          href="https://www.facebook.com/BRASILEIRODEHIPISMO/"
+          target="_blank"
+        >
           <FacebookIcon width="26px" />
         </BLink>
-        <BLink href="">
+        <BLink
+          href="https://www.youtube.com/user/brasileirodehipismo"
+          target="_blank"
+        >
           <YoutubeIcon width="26px" />
         </BLink>
-        <BLink href="">
+        <BLink href="https://www.instagram.com/abcch_oficial/" target="_blank">
           <InstagramIcon width="26px" />
         </BLink>
-        <BLink href="">
+        <!--
+        <BLink href="" target="_blank">
           <WhatsappIcon width="26px" />
         </BLink>
+        -->
         <div class="menu-mobile-button">
           <MainMenuMobile :items="[...menu[0], ...menu[1]]" />
         </div>
