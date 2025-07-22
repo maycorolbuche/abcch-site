@@ -83,7 +83,7 @@ export default {
         {
           title: "Regulamentos",
           image: regulationsImg,
-          to: { name: "home" },
+          to: { name: "docs", params: { type: "regulamento" } },
         },
         {
           title: "Rankings",

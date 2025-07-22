@@ -37,6 +37,13 @@ const router = createRouter({
     },
 
     {
+      path: "/comunicado/:type",
+      name: "docs",
+      component: () => import("../views/Docs.vue"),
+      props: true,
+    },
+
+    {
       path: "/:menu/:submenu?",
       name: "page",
       component: () => import("../views/Page.vue"),
