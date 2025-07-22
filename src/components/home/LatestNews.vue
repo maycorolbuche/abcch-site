@@ -1,5 +1,5 @@
 <template>
-  <BCard class="border-0">
+  <BCard class="border-0 p-0" body-class="p-0">
     <BCardTitle
       class="fs-4 fw-bold p-0 m-0 text-primary d-flex align-items-end justify-content-between"
     >
