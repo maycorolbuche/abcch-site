@@ -1,6 +1,6 @@
 <template>
   <div>
-    <TitleBar :title="title" :loading="!data ? true : false" />
+    <TitleBar :title="title" />
 
     <BRow class="mb-4 px-5">
       <BCol :cols="12" class="pt-2">
@@ -52,7 +52,7 @@ export default {
       const currentYear = new Date().getFullYear();
       const anos = [];
 
-      for (let ano = currentYear; ano >= 2014; ano--) {
+      for (let ano = currentYear; ano >= 2012; ano--) {
         anos.push({ value: ano, text: String(ano) });
       }
 

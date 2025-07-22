@@ -88,7 +88,7 @@ export default {
         {
           title: "Rankings",
           image: rankingsImg,
-          to: { name: "home" },
+          to: { name: "docs", params: { type: "ranking" } },
         },
       ];
     },
