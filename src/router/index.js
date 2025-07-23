@@ -30,6 +30,17 @@ const router = createRouter({
       component: () => import("../views/Animals.vue"),
     },
     {
+      path: "/studbook/matriz",
+      name: "gold_mares",
+      component: () => import("../views/GoldMares.vue"),
+    },
+    {
+      path: "/studbook/matriz/:type",
+      name: "gold_mares_data",
+      component: () => import("../views/GoldMaresData.vue"),
+      props: true,
+    },
+    {
       path: "/animal/:id",
       name: "animal",
       component: () => import("../views/Animal.vue"),

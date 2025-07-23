@@ -100,18 +100,20 @@ export default {
               },
               {
                 title: "Consulta genealógica",
+                to: { name: "animals" },
               },
               {
                 title: "Acompanhe o registro do seu potro",
               },
-              {
+              /*{
                 title: "Garanhões",
-              },
-              {
+              },*/
+              /*{
                 title: "Matrizes de ouro",
                 submenu: [
                   {
                     title: "Regulamento",
+                    to: { name: "gold_mares" },
                   },
                   {
                     title: "Quem são",
@@ -120,6 +122,10 @@ export default {
                     title: "Fotos",
                   },
                 ],
+              },*/
+              {
+                title: "Matrizes de ouro",
+                to: { name: "gold_mares" },
               },
               {
                 title: "Cruzamento virtual",
