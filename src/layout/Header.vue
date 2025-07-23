@@ -90,6 +90,7 @@ export default {
             submenu: [
               {
                 title: "Como registrar",
+                to: { name: "register" },
               },
               {
                 title: "Lançamento de cobrição",

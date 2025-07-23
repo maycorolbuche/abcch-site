@@ -1,6 +1,7 @@
 <template>
   <TitleBar
     :title="title ?? data?.site_titulo"
+    :subtitle="subtitle"
     :loading="!data && !title && !data?.site_titulo"
   />
   <slot />
@@ -24,6 +25,7 @@ export default {
   },
   props: {
     title: String,
+    subtitle: String,
     loading: Boolean,
   },
   emits: ["data", "status"],
