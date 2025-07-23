@@ -47,9 +47,10 @@ const router = createRouter({
       component: () => import("../views/Register.vue"),
     },
     {
-      path: "/inspetores",
-      name: "inspectors",
-      component: () => import("../views/Inspectors.vue"),
+      path: "/pessoas/:type",
+      name: "people",
+      component: () => import("../views/People.vue"),
+      props: true,
     },
     {
       path: "/:menu/:submenu?",
