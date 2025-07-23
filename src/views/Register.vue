@@ -3,7 +3,7 @@
     <div class="px-5 text-center">
       <p class="fs-16px">
         Este guia explica, passo a passo, como lançar as informações necessárias
-        para registrar genealogicamente seu potro ou potra na ABCCCH (Associação
+        para registrar genealogicamente seu potro ou potra na ABCCH (Associação
         Brasileira de Criadores do Cavalo de Hipismo).
       </p>
 
@@ -36,7 +36,7 @@
       <p>
         <b>Quem faz:</b>
         Proprietário do garanhão/sêmen ou o médico veterinário responsável pela
-        técnica, devidamente cadastrado na ABCCCH.
+        técnica, devidamente cadastrado na ABCCH.
       </p>
       <p>
         <b>Prazos:</b>
@@ -50,7 +50,7 @@
         <br />
         Informar se houve TE. <br />
         Anexar nota fiscal (de sêmen se adquirido de terceiros). <br />
-        A égua doadora deve ter coleta de cria registrada na ABCCCH.
+        A égua doadora deve ter coleta de cria registrada na ABCCH.
       </p>
 
       <p class="fw-bold fs-5 m-3 mt-5 pt-3">
@@ -116,7 +116,7 @@
       <p>
         <b>Quem realiza:</b>
         <br />
-        Inspetor credenciado da ABCCCH.<br />
+        Inspetor credenciado da ABCCH.<br />
         Lista de inspetores:
         <BButton
           pill
@@ -141,14 +141,14 @@
       <p>
         <b>Após inspeção:</b>
         <br />
-        O inspetor envia os documentos à ABCCCH em até 30 dias.<br />
+        O inspetor envia os documentos à ABCCH em até 30 dias.<br />
         Transferência de propriedade do embrião inválido.
       </p>
 
       <p class="fw-bold fs-5 m-3 mt-5 pt-3">FINALIZAÇÃO DO PROCESSO</p>
       <p>
-        A ABCCCH verifica a documentação, realiza a cobrança e, após aprovação
-        do DNA, libera o registro.
+        A ABCCH verifica a documentação, realiza a cobrança e, após aprovação do
+        DNA, libera o registro.
       </p>
       <p>
         O documento é enviado via Correios e também fica disponível no site na
