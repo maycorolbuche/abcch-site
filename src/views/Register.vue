@@ -123,7 +123,7 @@
           variant="primary"
           size="sm"
           class="text-uppercase fw-600 px-3 py-0"
-          :to="{ name: 'people', params: { type: 'inspetor' } }"
+          :to="{ name: 'people', params: { type: 'inspetores' } }"
         >
           Clique Aqui
         </BButton>

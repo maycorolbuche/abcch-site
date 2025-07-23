@@ -2,7 +2,7 @@
   <Page :title="title">
     <div class="px-5">
       <DataTable
-        :api-url="'/pessoas/' + type"
+        :api-url="'/pessoas/' + type_people"
         :fields="[
           {
             key: 'nome',
@@ -45,11 +45,14 @@ export default {
   },
   computed: {
     title() {
-      let suffix = "s";
-      if (this.type == "inspetor") {
-        suffix = "es";
+      return this.type.charAt(0).toUpperCase() + this.type.slice(1);
+    },
+    type_people() {
+      if (this.type == "inspetores") {
+        return "inspetor";
+      } else {
+        return this.type;
       }
-      return this.type.charAt(0).toUpperCase() + this.type.slice(1) + suffix;
     },
   },
 };

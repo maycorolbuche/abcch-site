@@ -126,7 +126,7 @@ export default {
               },
               {
                 title: "Inspetores",
-                to: { name: "people", params: { type: "inspetor" } },
+                to: { name: "people", params: { type: "inspetores" } },
               },
               {
                 title: "Conselho D. técnico",

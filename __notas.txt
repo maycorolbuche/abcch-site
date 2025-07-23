@@ -1,4 +1,0 @@
-***** Fazer/Verificar: *****
-
-- Página de Inspetores ==> { name: 'inspectors' }
-
