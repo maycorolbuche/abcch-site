@@ -140,6 +140,11 @@ export default {
               },
               {
                 title: "Tabela de emolumentos",
+
+                to: {
+                  name: "page",
+                  params: { menu: "abcch", submenu: "emolumentos" },
+                },
               },
               {
                 title: "Regulamentos",
