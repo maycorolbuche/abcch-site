@@ -173,8 +173,6 @@ export default {
               self.data = data;
               self.current_page = data.current_page;
               Storage.set("dt-" + self.apiUrl, data);
-            } else {
-              self.data = [];
             }
           }
         );
