@@ -1,7 +1,7 @@
 <template>
   <TitleBar
-    :title="title ?? data?.site_titulo"
-    :subtitle="subtitle"
+    :title="page_title"
+    :subtitle="page_subtitle"
     :loading="!data && !title && !data?.site_titulo"
   />
   <slot />
@@ -41,6 +41,23 @@ export default {
     },
     submenu() {
       return this.path[1] ?? null;
+    },
+    page_title() {
+      if (this.title) {
+        return this.title;
+      } else if (this.data?.site_titulo) {
+        return this.data.site_titulo.split("|")[0].trim();
+      }
+    },
+    page_subtitle() {
+      if (this.subtitle) {
+        return this.subtitle;
+      } else if (this.data?.site_titulo) {
+        const parts = this.data.site_titulo.split("|");
+        if (parts.length > 1) {
+          return parts[1].trim();
+        }
+      }
     },
   },
   methods: {

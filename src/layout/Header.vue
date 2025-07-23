@@ -90,7 +90,10 @@ export default {
             submenu: [
               {
                 title: "Como registrar",
-                to: { name: "register" },
+                to: {
+                  name: "page",
+                  params: { menu: "abcch", submenu: "registrar" },
+                },
               },
               {
                 title: "Lançamento de cobrição",
@@ -130,9 +133,13 @@ export default {
               },
               {
                 title: "Conselho D. técnico",
+                to: {
+                  name: "page",
+                  params: { menu: "abcch", submenu: "diretoria" },
+                },
               },
               {
-                title: "Tabela de molumentos",
+                title: "Tabela de emolumentos",
               },
               {
                 title: "Regulamentos",

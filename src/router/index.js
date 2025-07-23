@@ -42,11 +42,6 @@ const router = createRouter({
       props: true,
     },
     {
-      path: "/registrar",
-      name: "register",
-      component: () => import("../views/Register.vue"),
-    },
-    {
       path: "/pessoas/:type",
       name: "people",
       component: () => import("../views/People.vue"),
