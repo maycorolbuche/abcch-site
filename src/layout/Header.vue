@@ -176,11 +176,39 @@ export default {
           },
           {
             title: "Eventos",
+            submenu: [
+              {
+                title: "Festival Nacional",
+                to: {
+                  name: "docs",
+                  params: { type: "festival" },
+                },
+              },
+              {
+                title: "Festival do BH",
+              },
+              {
+                title: "Gran Slam",
+              },
+              {
+                title: "Dia de Campo",
+              },
+              {
+                title: "BH TV",
+              },
+              {
+                title: "Palestras/Cursos",
+              },
+            ],
           },
         ],
         [
           {
             title: "Transparência",
+            to: {
+              name: "docs",
+              params: { type: "transparencia" },
+            },
           },
           {
             title: "Contato / Ouvidoria",

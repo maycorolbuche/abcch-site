@@ -46,6 +46,11 @@ export default {
   }),
   computed: {
     title() {
+      if (this.type === "festival") {
+        return "Festival Nacional";
+      } else if (this.type === "transparencia") {
+        return "Transparência";
+      }
       return this.type.charAt(0).toUpperCase() + this.type.slice(1) + "s";
     },
     ano_options() {
