@@ -42,9 +42,15 @@ const router = createRouter({
     },
 
     {
-      path: "/pessoas/:type",
-      name: "people",
-      component: () => import("../views/People.vue"),
+      path: "/inspetores",
+      name: "inspectors",
+      component: () => import("../views/Inspectors.vue"),
+      props: true,
+    },
+    {
+      path: "/criadores",
+      name: "creators",
+      component: () => import("../views/Creators.vue"),
       props: true,
     },
 
@@ -88,6 +94,9 @@ const router = createRouter({
       props: true,
     },
   ],
+  scrollBehavior(to, from, savedPosition) {
+    return { top: 0 };
+  },
 });
 
 export default router;

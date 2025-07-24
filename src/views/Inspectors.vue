@@ -1,8 +1,18 @@
 <template>
-  <Page :title="title">
+  <Page title="Inspetores">
     <div class="px-5">
+      <label class="form-label d-block">Pesquisa por Estado</label>
+
+      <BrasilMap v-model="uf" />
+
+      <div class="py-1" />
+
       <DataTable
-        :api-url="'/pessoas/' + type_people"
+        api-url="/inspetores"
+        searchLabel="Pesquisa por Nome"
+        searchLabelFilter="Nome"
+        :params="{ uf }"
+        :filters="[{ label: 'UF', value: uf }]"
         :fields="[
           {
             key: 'nome',
@@ -34,26 +44,16 @@
 import Page from "@/components/Page.vue";
 
 import DataTable from "@/components/DataTable.vue";
+import BrasilMap from "@/components/BrasilMap.vue";
 
 export default {
   components: {
     Page,
     DataTable,
+    BrasilMap,
   },
-  props: {
-    type: String,
-  },
-  computed: {
-    title() {
-      return this.type.charAt(0).toUpperCase() + this.type.slice(1);
-    },
-    type_people() {
-      if (this.type == "inspetores") {
-        return "inspetor";
-      } else {
-        return this.type;
-      }
-    },
-  },
+  data: () => ({
+    uf: null,
+  }),
 };
 </script>

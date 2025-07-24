@@ -5,6 +5,11 @@
         api-url="/estatisticas"
         :params="{ tipo, ano, nome }"
         :searchable="false"
+        :filters="[
+          { label: 'Tipo', value: tipo_item },
+          { label: 'Ano', value: ano == 0 ? 'Acumulado' : ano },
+          { label: 'Animal', value: nome },
+        ]"
         :fields="[
           {
             key: 'classificacao',
@@ -26,7 +31,6 @@
             class: 'text-end',
           },
         ]"
-        @loading="setLoading"
       >
         <BRow class="mb-4">
           <BCol :cols="12" :md="10" class="pt-2">
@@ -46,31 +50,12 @@
           <BCol :cols="12" class="pt-2">
             <BFormGroup label="Informe o nome, o registro ou microchip">
               <FormSearch
-                @search="setAnimal"
+                v-model="nome"
                 placeholder="Nome, registro ou microchip"
               />
             </BFormGroup>
           </BCol>
         </BRow>
-
-        <div v-if="loading" class="fs-14px">
-          <BSpinner small class="me-2" />Carregando...
-        </div>
-        <div
-          v-else
-          class="fs-14px d-flex align-items-center flex-wrap"
-          style="column-gap: 15px"
-        >
-          <div>
-            Tipo: <b>{{ tipo_item }}</b>
-          </div>
-          <div>
-            Ano: <b>{{ ano == 0 ? "Acumulado" : ano }}</b>
-          </div>
-          <div v-if="nome">
-            Animal: <b>{{ nome }}</b>
-          </div>
-        </div>
       </DataTable>
     </div>
   </Page>
@@ -97,7 +82,6 @@ export default {
     nome: "",
     tipo_lista: [],
 
-    loading: false,
     abort_controller: null,
   }),
   computed: {
@@ -125,13 +109,6 @@ export default {
     },
   },
   methods: {
-    setAnimal(value) {
-      this.nome = value;
-    },
-    setLoading(value) {
-      this.loading = value;
-    },
-
     async loadData(options = {}) {
       this.abort();
 

@@ -67,7 +67,6 @@
             label: 'Proprietário',
           },
         ]"
-        @loading="setLoading"
         @item="setItem"
       >
         <BRow class="mb-4">
@@ -81,17 +80,13 @@
               "
             >
               <FormSearch
-                @search="setAnimal"
+                v-model="nome"
                 placeholder="Nome, registro ou microchip"
                 :key="tipo"
               />
             </BFormGroup>
           </BCol>
         </BRow>
-
-        <div v-if="loading" class="fs-14px">
-          <BSpinner small class="me-2" />Carregando...
-        </div>
       </DataTable>
 
       <BAlert :model-value="nome == ''" variant="warning">
@@ -117,7 +112,6 @@ export default {
     tipo: 2,
     nome: "",
 
-    loading: false,
     sire: null,
     dam: null,
   }),
@@ -133,12 +127,6 @@ export default {
     },
   },
   methods: {
-    setAnimal(value) {
-      this.nome = value;
-    },
-    setLoading(value) {
-      this.loading = value;
-    },
     setItem(value) {
       if (this.tipo == 2) {
         this.sire = value;

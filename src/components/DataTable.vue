@@ -3,19 +3,32 @@
     <slot />
 
     <div v-if="searchable">
-      <BFormGroup label="Pesquisar">
-        <FormSearch @search="searchFor" />
+      <BFormGroup :label="searchLabel">
+        <FormSearch v-model="search" />
       </BFormGroup>
       <div class="my-3" />
     </div>
 
-    <div v-if="search" class="fs-14px">
-      <BSpinner v-if="searching" small class="me-2" />
-      Buscando por: <b>{{ search }}</b>
-    </div>
-    <div v-else-if="searching || !data" class="fs-14px">
+    <div v-if="searching || loading || !data" class="fs-14px">
       <BSpinner small class="me-2" />
       Carregando...
+    </div>
+    <div v-else class="fs-14px d-flex align-items-center flex-wrap">
+      <div
+        class="fs-14px d-flex align-items-center flex-wrap"
+        style="column-gap: 15px"
+      >
+        <div v-if="search">
+          {{ searchLabelFilter }}: <b>{{ search }}</b>
+        </div>
+        <div
+          v-for="filter in filters"
+          :key="filter.label"
+          v-show="filter.value"
+        >
+          {{ filter.label }}: <b>{{ filter.value }}</b>
+        </div>
+      </div>
     </div>
 
     <div v-if="!searching && data">
@@ -46,6 +59,17 @@
               href="#"
               @click.prevent="$emit('item', item)"
               :class="field?.route?.class"
+            >
+              {{ field?.prefix }}
+              {{ field?.text }}
+              {{ item[field?.key] ?? "" }}
+              {{ field?.sufix }}
+            </a>
+            <a
+              v-else-if="field?.type == 'link'"
+              :href="link(item[field?.key])"
+              :class="field?.route?.class"
+              target="_blank"
             >
               {{ field?.prefix }}
               {{ field?.text }}
@@ -90,10 +114,16 @@ export default {
   props: {
     apiUrl: String,
     fields: Array,
-    routeName: String,
-    routeParamId: String,
-    routeLabel: String,
     items: Array,
+    filters: Array,
+    searchLabel: {
+      type: String,
+      default: "Pesquisar",
+    },
+    searchLabelFilter: {
+      type: String,
+      default: "Buscando por",
+    },
     searchable: {
       type: Boolean,
       default: true,
@@ -120,6 +150,11 @@ export default {
     loading() {
       return this.loading_count > 0;
     },
+    getParams() {
+      return Object.fromEntries(
+        Object.entries(this.params).filter(([_, v]) => v != null)
+      );
+    },
   },
   watch: {
     current_page(newVal) {
@@ -138,6 +173,11 @@ export default {
     },
     toLoad() {
       this.data.current_page = 1;
+      this.loadData({ current_page: 1 });
+    },
+    search() {
+      this.searching = true;
+      Storage.set("dt-s-" + this.apiUrl, this.search);
       this.loadData({ current_page: 1 });
     },
   },
@@ -174,7 +214,7 @@ export default {
             search: this.search,
             page: this.current_page,
             __signal: signal,
-            ...self.params,
+            ...self.getParams,
           },
           function (status, data) {
             self.loading_count--;
@@ -202,14 +242,6 @@ export default {
         this.pagination_limit = 10;
       }
     },
-    searchFor(value) {
-      if (value != this.search) {
-        this.search = value;
-        this.searching = true;
-        Storage.set("dt-s-" + this.apiUrl, this.search);
-        this.loadData({ current_page: 1 });
-      }
-    },
     abort() {
       if (this.abort_controller) {
         this.abort_controller.abort();
@@ -221,6 +253,12 @@ export default {
         p[param] = item[params[param]] ?? "";
       });
       return p;
+    },
+    link(url) {
+      if (!/^https?:\/\//i.test(url)) {
+        return "https://" + url;
+      }
+      return url;
     },
   },
   mounted() {

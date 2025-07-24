@@ -17,6 +17,10 @@ export default {
     MagnifyIcon,
   },
   props: {
+    modelValue: {
+      type: String,
+      default: "",
+    },
     placeholder: {
       type: String,
       default: "Pesquisar",
@@ -25,10 +29,18 @@ export default {
   data: () => ({
     search: "",
   }),
+  watch: {
+    modelValue(newVal) {
+      this.search = newVal;
+    },
+  },
   methods: {
     searchFor() {
-      this.$emit("search", this.search);
+      this.$emit("update:modelValue", this.search);
     },
+  },
+  mounted() {
+    this.search = this.modelValue;
   },
 };
 </script>
