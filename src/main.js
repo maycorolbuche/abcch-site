@@ -12,6 +12,11 @@ import "bootstrap-vue-next/dist/bootstrap-vue-next.css";
 import VueSplide from "@splidejs/vue-splide";
 import "@splidejs/vue-splide/css";
 
+/* SweetAlert */
+/* https://sweetalert2.github.io/ */
+import VueSweetalert2 from "vue-sweetalert2";
+import "sweetalert2/dist/sweetalert2.min.css";
+
 const app = createApp(App);
 
 import "./assets/styles/main.scss";
@@ -19,4 +24,5 @@ import "./assets/styles/main.scss";
 app.use(router);
 app.use(createBootstrap());
 app.use(VueSplide);
+app.use(VueSweetalert2);
 app.mount("#app");

@@ -1,6 +1,6 @@
 <template>
   <div>
-    <div v-if="!loading" class="bg-primary my-3 p-4">
+    <div v-if="!loading" class="bg-primary my-3 p-5">
       <div class="text-center text-white" style="line-height: 1.3">
         <div v-if="title" class="fs-2 fw-700 p-0 m-0">
           {{ title.toUpperCase() }}
@@ -17,7 +17,7 @@
       width="100%"
       class="my-3 p-4"
       animation="glow"
-      style="height: 100px"
+      style="height: 130px"
     />
   </div>
 </template>

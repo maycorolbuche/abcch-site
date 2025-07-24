@@ -133,6 +133,7 @@ export default {
               },
               {
                 title: "Formulários",
+                to: { name: "forms" },
               },
               {
                 title: "Inspetores",

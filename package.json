@@ -13,7 +13,8 @@
     "bootstrap": "^5.3.7",
     "bootstrap-vue-next": "^0.30.3",
     "vue": "^3.5.17",
-    "vue-router": "^4.5.1"
+    "vue-router": "^4.5.1",
+    "vue-sweetalert2": "^5.0.11"
   },
   "devDependencies": {
     "@vitejs/plugin-vue": "^5.2.3",

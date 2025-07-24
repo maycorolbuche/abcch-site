@@ -8,6 +8,7 @@ const router = createRouter({
       name: "home",
       component: () => import("../views/Home.vue"),
     },
+
     {
       path: "/noticias",
       name: "news",
@@ -19,11 +20,34 @@ const router = createRouter({
       component: () => import("../views/ReadNews.vue"),
       props: true,
     },
+
     {
       path: "/estatistica",
       name: "statistic",
       component: () => import("../views/Statistic.vue"),
     },
+
+    {
+      path: "/animal/:id",
+      name: "animal",
+      component: () => import("../views/Animal.vue"),
+      props: true,
+    },
+
+    {
+      path: "/comunicado/:type",
+      name: "docs",
+      component: () => import("../views/Docs.vue"),
+      props: true,
+    },
+
+    {
+      path: "/pessoas/:type",
+      name: "people",
+      component: () => import("../views/People.vue"),
+      props: true,
+    },
+
     {
       path: "/studbook",
       name: "animals",
@@ -41,24 +65,6 @@ const router = createRouter({
       props: true,
     },
     {
-      path: "/animal/:id",
-      name: "animal",
-      component: () => import("../views/Animal.vue"),
-      props: true,
-    },
-    {
-      path: "/comunicado/:type",
-      name: "docs",
-      component: () => import("../views/Docs.vue"),
-      props: true,
-    },
-    {
-      path: "/pessoas/:type",
-      name: "people",
-      component: () => import("../views/People.vue"),
-      props: true,
-    },
-    {
       path: "/studbook/cruzamento",
       name: "virtual_crossing_search",
       component: () => import("../views/VirtualCrossingSearch.vue"),
@@ -69,6 +75,12 @@ const router = createRouter({
       component: () => import("../views/VirtualCrossing.vue"),
       props: true,
     },
+    {
+      path: "/studbook/formulario",
+      name: "forms",
+      component: () => import("../views/Forms.vue"),
+    },
+
     {
       path: "/:menu/:submenu?",
       name: "page",
