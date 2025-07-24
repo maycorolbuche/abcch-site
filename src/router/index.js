@@ -59,6 +59,17 @@ const router = createRouter({
       props: true,
     },
     {
+      path: "/studbook/cruzamento",
+      name: "virtual_crossing_search",
+      component: () => import("../views/VirtualCrossingSearch.vue"),
+    },
+    {
+      path: "/studbook/cruzamento/:sire/:dam",
+      name: "virtual_crossing",
+      component: () => import("../views/VirtualCrossing.vue"),
+      props: true,
+    },
+    {
       path: "/:menu/:submenu?",
       name: "page",
       component: () => import("../views/Page.vue"),

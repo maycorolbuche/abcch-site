@@ -129,6 +129,7 @@ export default {
               },
               {
                 title: "Cruzamento virtual",
+                to: { name: "virtual_crossing_search" },
               },
               {
                 title: "Formulários",

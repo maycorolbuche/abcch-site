@@ -133,7 +133,7 @@ export default {
     },
   },
   methods: {
-    async loadData(options = {}) {
+    async loadData() {
       this.abort();
 
       this.abort_controller = new AbortController();

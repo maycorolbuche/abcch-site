@@ -41,6 +41,17 @@
               {{ item[field?.key] ?? "" }}
               {{ field?.sufix }}
             </router-link>
+            <a
+              v-else-if="field?.emit"
+              href="#"
+              @click.prevent="$emit('item', item)"
+              :class="field?.route?.class"
+            >
+              {{ field?.prefix }}
+              {{ field?.text }}
+              {{ item[field?.key] ?? "" }}
+              {{ field?.sufix }}
+            </a>
             <span v-else>
               {{ field?.prefix }}
               {{ field?.text }}
