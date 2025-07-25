@@ -212,6 +212,7 @@ export default {
           },
           {
             title: "Contato / Ouvidoria",
+            to: { name: "contact" },
           },
           {
             title: "Área Restrita",
