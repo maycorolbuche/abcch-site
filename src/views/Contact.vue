@@ -106,9 +106,6 @@
             <span v-else> Enviar Mensagem </span>
           </BButton>
         </BForm>
-
-        ..{{ sending }}.. ,,{{ form_data }},,
-        <pre class="m-0">{{ form }}</pre>
       </div>
     </div>
   </div>

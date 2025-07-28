@@ -1,5 +1,5 @@
 <template>
-  <footer>
+  <footer class="mt-5">
     <div
       class="footer-info bg-primary d-flex flex-row flex-wrap justify-content-evenly text-white p-5"
     >
