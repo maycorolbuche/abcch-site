@@ -4,8 +4,7 @@
   <main>
     <RouterView :key="$route.fullPath" />
   </main>
-
-  <Footer />
+  <Footer :spacing="!isHome" />
 </template>
 
 <script>
@@ -16,6 +15,11 @@ export default {
   components: {
     Header,
     Footer,
+  },
+  computed: {
+    isHome() {
+      return this.$route.name === "home";
+    },
   },
 };
 </script>

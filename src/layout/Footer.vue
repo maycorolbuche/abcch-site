@@ -1,5 +1,5 @@
 <template>
-  <footer class="mt-5">
+  <footer :class="{ 'mt-5': spacing }">
     <div
       class="footer-info bg-primary d-flex flex-row flex-wrap justify-content-evenly text-white p-5"
     >
@@ -74,6 +74,12 @@ export default {
     PhoneIcon,
     EmailOutlineIcon,
     ClockOutlineIcon,
+  },
+  props: {
+    spacing: {
+      type: Boolean,
+      default: true,
+    },
   },
 };
 </script>
