@@ -107,7 +107,7 @@
           </BButton>
         </BForm>
 
-        <div class="d-flex align-items-center justify-content-between pt-5">
+        <div class="map-blocks pt-5">
           <div class="my-3 p-2 d-flex flex-column align-items-center">
             <div class="bg-primary rounded w-content p-3">
               <PhoneIcon color="#FFF" width="26px" />
@@ -131,6 +131,12 @@
           <div class="my-3 p-2 d-flex flex-column align-items-center">
             <div class="bg-primary rounded w-content p-3">
               <MapMarkerCircleIcon color="#FFF" width="26px" />
+            </div>
+            <div style="z-index: -1">
+              <img
+                src="@/assets/imgs/map.png"
+                style="width: 100%; margin-top: -30px"
+              />
             </div>
             <div class="text-center">
               <p class="p-0 m-0 fw-600 text-uppercase">
@@ -296,6 +302,18 @@ export default {
 <style lang="scss" scoped>
 .form-container {
   width: 500px;
+
+  .map-blocks {
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+    align-items: center;
+    flex-direction: row;
+
+    @media (max-width: 550px) {
+      flex-direction: column;
+    }
+  }
 }
 </style>
 >
