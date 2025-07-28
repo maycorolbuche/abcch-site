@@ -68,7 +68,8 @@ export default {
     }
 
     let url = `${this.url()}/${route}${params}`;
-    if (cache[url]) {
+    console.log("method", method);
+    if (method == "GET" && cache[url]) {
       callback(true, cache[url]);
       return true;
     }
@@ -110,8 +111,8 @@ export default {
       callback(true, data);
       return true;
     } else if (response) {
-      console.log("[03]==>", data.erro);
       let data = await response.json();
+      console.log("[03]==>", data.error);
       callback(false, data.error);
       return false;
     }
