@@ -106,6 +106,43 @@
             <span v-else> Enviar Mensagem </span>
           </BButton>
         </BForm>
+
+        <div class="d-flex align-items-center justify-content-between pt-5">
+          <div class="my-3 p-2 d-flex flex-column align-items-center">
+            <div class="bg-primary rounded w-content p-3">
+              <PhoneIcon color="#FFF" width="26px" />
+            </div>
+            <div class="text-center">
+              <p class="fs-6 fw-600 m-0">TELEFONE</p>
+              <p class="p-0 m-0 fs-4 fw-600">(11) 3672-2866</p>
+            </div>
+          </div>
+          <div class="my-3 p-2 d-flex flex-column align-items-center">
+            <div class="bg-primary rounded w-content p-3">
+              <EmailOutlineIcon color="#FFF" width="26px" />
+            </div>
+            <div class="text-center">
+              <p class="fs-6 fw-600 m-0">E-MAIL</p>
+              <p class="p-0 m-0 fs-5 fw-600">CONTATO@ABCCH.COM.BR</p>
+            </div>
+          </div>
+        </div>
+        <div class="d-flex align-items-center justify-content-center">
+          <div class="my-3 p-2 d-flex flex-column align-items-center">
+            <div class="bg-primary rounded w-content p-3">
+              <MapMarkerCircleIcon color="#FFF" width="26px" />
+            </div>
+            <div class="text-center">
+              <p class="p-0 m-0 fw-600 text-uppercase">
+                Av. Francisco Matarazzo, 1752 - Água Branca
+              </p>
+              <p class="p-0 m-0 fw-600 text-uppercase">Salas 2007 e 2008</p>
+              <p class="p-0 m-0 fw-600 text-uppercase">
+                São Paulo - SP - CEP 05001-200
+              </p>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </div>
@@ -117,9 +154,17 @@ import Storage from "@/helpers/Storage.js";
 
 import Page from "@/components/Page.vue";
 
+import MapMarkerCircleIcon from "@/components/icons/MapMarkerCircle.vue";
+import PhoneIcon from "@/components/icons/Phone.vue";
+import EmailOutlineIcon from "@/components/icons/EmailOutline.vue";
+
 export default {
   components: {
     Page,
+
+    MapMarkerCircleIcon,
+    PhoneIcon,
+    EmailOutlineIcon,
   },
   data: () => ({
     data: null,
