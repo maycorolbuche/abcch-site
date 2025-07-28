@@ -7,12 +7,18 @@
   <slot />
 
   <template v-if="loading && !data">
-    <div class="px-5 py-2 pb-3">
+    <div class="px-5 pt-2">
       <BPlaceholder v-for="n in 3" :key="n" width="100%" animation="glow" />
     </div>
   </template>
   <div v-else-if="!data">
-    <BProgress variant="primary" :value="100" striped animated />
+    <BProgress
+      variant="primary"
+      :value="100"
+      striped
+      animated
+      style="margin-bottom: -50px"
+    />
   </div>
   <div v-else-if="data" v-html="data?.site_html" class="px-5 py-2 pb-4" />
 </template>

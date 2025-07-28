@@ -95,16 +95,20 @@ export default {
                   params: { menu: "abcch", submenu: "registrar" },
                 },
               },
+              /*
               {
                 title: "Lançamento de cobrição",
               },
+              */
               {
                 title: "Consulta genealógica",
                 to: { name: "animals" },
               },
+              /*
               {
                 title: "Acompanhe o registro do seu potro",
               },
+              */
               /*{
                 title: "Garanhões",
               },*/
@@ -132,6 +136,13 @@ export default {
                 to: { name: "virtual_crossing_search" },
               },
               {
+                title: "Mapa genético",
+                to: {
+                  name: "page",
+                  params: { menu: "studbook", submenu: "mapa" },
+                },
+              },
+              {
                 title: "Formulários",
                 to: { name: "forms" },
               },
@@ -151,6 +162,27 @@ export default {
                 },
               },
               {
+                title: "Atas CDT",
+                to: {
+                  name: "docs",
+                  params: { type: "cdt" },
+                },
+              },
+              {
+                title: "Rankings",
+                to: {
+                  name: "docs",
+                  params: { type: "ranking" },
+                },
+              },
+              {
+                title: "Comunicados",
+                to: {
+                  name: "docs",
+                  params: { type: "comunicado" },
+                },
+              },
+              {
                 title: "Tabela de emolumentos",
 
                 to: {
@@ -158,6 +190,14 @@ export default {
                   params: { menu: "abcch", submenu: "emolumentos" },
                 },
               },
+              {
+                title: "Regulamentos",
+                to: {
+                  name: "docs",
+                  params: { type: "regulamento" },
+                },
+              },
+              /*
               {
                 title: "Regulamentos",
                 submenu: [
@@ -169,10 +209,15 @@ export default {
                   },
                 ],
               },
+              */
             ],
           },
           {
             title: "ABCCH",
+            to: {
+              name: "page",
+              params: { menu: "abcch", submenu: "sobre" },
+            },
           },
           {
             title: "Eventos",
@@ -184,6 +229,7 @@ export default {
                   params: { type: "festival" },
                 },
               },
+              /*
               {
                 title: "Festival do BH",
               },
@@ -199,6 +245,7 @@ export default {
               {
                 title: "Palestras/Cursos",
               },
+              */
             ],
           },
         ],

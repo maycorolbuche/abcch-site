@@ -55,7 +55,7 @@ const router = createRouter({
     },
 
     {
-      path: "/studbook",
+      path: "/studbook/genealogia",
       name: "animals",
       component: () => import("../views/Animals.vue"),
     },

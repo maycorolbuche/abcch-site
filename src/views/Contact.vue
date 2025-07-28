@@ -237,7 +237,6 @@ export default {
       this.data = Storage.get("email_dados", []);
 
       let self = this;
-      //Carregar as combos//////////////////////////////////////
       await Api.get(
         "/email/dados",
         {
