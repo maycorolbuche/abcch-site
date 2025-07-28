@@ -1,9 +1,9 @@
 <template>
-  <BRow class="p-4">
-    <BCol :cols="12" :md="6">
+  <BRow class="p-4 pt-0">
+    <BCol :cols="12" :md="6" class="pt-4">
       <BlocksLinks />
     </BCol>
-    <BCol :cols="12" :md="6">
+    <BCol :cols="12" :md="6" class="pt-4">
       <LatestNews />
     </BCol>
   </BRow>
