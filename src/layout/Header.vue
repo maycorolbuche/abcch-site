@@ -95,20 +95,18 @@ export default {
                   params: { menu: "abcch", submenu: "registrar" },
                 },
               },
-              /*
               {
                 title: "Lançamento de cobrição",
+                href: "https://abcch.com.br/sistema/",
               },
-              */
               {
                 title: "Consulta genealógica",
                 to: { name: "animals" },
               },
-              /*
               {
                 title: "Acompanhe o registro do seu potro",
+                href: "https://abcch.com.br/sistema/",
               },
-              */
               /*{
                 title: "Garanhões",
               },*/
