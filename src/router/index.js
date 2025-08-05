@@ -94,6 +94,12 @@ const router = createRouter({
     },
 
     {
+      path: "/pesquisa",
+      name: "search",
+      component: () => import("../views/Search.vue"),
+    },
+
+    {
       path: "/:menu/:submenu?",
       name: "page",
       component: () => import("../views/Page.vue"),

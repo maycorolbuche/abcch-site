@@ -96,6 +96,7 @@
 <script>
 import Api from "@/services/Api.js";
 
+import TitleBar from "@/components/TitleBar.vue";
 import Page from "@/components/Page.vue";
 
 import DataTable from "@/components/DataTable.vue";
@@ -103,6 +104,7 @@ import FamilyTree from "@/components/FamilyTree.vue";
 
 export default {
   components: {
+    TitleBar,
     Page,
     DataTable,
     FamilyTree,

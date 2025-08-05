@@ -18,11 +18,10 @@
         class="social-icons h-50 d-flex justify-content-end"
         style="gap: 20px"
       >
-        <!--
-        <BLink href="" target="_blank">
+        <router-link :to="{ name: 'search' }">
           <MagnifyIcon width="26px" />
-        </BLink>
-        -->
+        </router-link>
+
         <BLink
           href="https://www.facebook.com/BRASILEIRODEHIPISMO/"
           target="_blank"
