@@ -88,6 +88,12 @@ const router = createRouter({
     },
 
     {
+      path: "/biblioteca",
+      name: "library",
+      component: () => import("../views/Library.vue"),
+    },
+
+    {
       path: "/contato",
       name: "contact",
       component: () => import("../views/Contact.vue"),

@@ -50,8 +50,7 @@
               :class="field?.route?.class"
             >
               {{ field?.prefix }}
-              {{ field?.text }}
-              {{ item[field?.key] ?? "" }}
+              {{ field?.text ?? item[field?.key] ?? "" }}
               {{ field?.sufix }}
             </router-link>
             <a
@@ -61,8 +60,7 @@
               :class="field?.route?.class"
             >
               {{ field?.prefix }}
-              {{ field?.text }}
-              {{ item[field?.key] ?? "" }}
+              {{ field?.text ?? item[field?.key] ?? "" }}
               {{ field?.sufix }}
             </a>
             <a
@@ -72,14 +70,12 @@
               target="_blank"
             >
               {{ field?.prefix }}
-              {{ field?.text }}
-              {{ item[field?.key] ?? "" }}
+              {{ field?.text ?? item[field?.key] ?? "" }}
               {{ field?.sufix }}
             </a>
             <span v-else>
               {{ field?.prefix }}
-              {{ field?.text }}
-              {{ item[field?.key] ?? "" }}
+              {{ field?.text ?? item[field?.key] ?? "" }}
               {{ field?.sufix }}
             </span>
           </template>
