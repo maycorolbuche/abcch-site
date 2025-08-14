@@ -7,7 +7,7 @@
     </TitleBar>
 
     <template v-if="data">
-      <div v-html="data?.texto" class="px-5" />
+      <div v-html="data?.conteudo" class="px-5" />
     </template>
 
     <template v-else>
