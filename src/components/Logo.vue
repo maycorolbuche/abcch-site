@@ -1,5 +1,5 @@
 <template>
-  <img :width="width" src="https://abcch.com.br/lib/img/logo_bh.png" />
+  <img :width="width" src="@/assets/imgs/logo.png" />
 </template>
 
 <script>

@@ -78,13 +78,13 @@ export default {
       background-color: #fff;
       color: #000;
       margin: 0 5px 0 5px;
-      font-weight: 800;
+      font-weight: 700;
       font-size: 14px;
       line-height: 0.9;
       text-align: center;
       height: 40px;
       align-content: center;
-      border-width: 3px;
+      border-width: 2px;
       border-style: solid;
       border-color: var(--bs-primary);
       border-image: linear-gradient(to bottom, #fff, var(--bs-primary)) 1;

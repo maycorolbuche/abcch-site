@@ -11,7 +11,7 @@
       </div>
     </div>
     <div class="logo-menu">
-      <Logo :width="100" />
+      <Logo :width="150" />
     </div>
     <div class="flex-auto">
       <div
@@ -186,6 +186,10 @@ export default {
                   name: "page",
                   params: { menu: "abcch", submenu: "emolumentos" },
                 },
+              },
+              {
+                title: "Biblioteca Virtual",
+                to: { name: "library" },
               },
               {
                 title: "Regulamentos",

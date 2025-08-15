@@ -1,5 +1,5 @@
 <template>
-  <Page title="Consulta Genealógica">
+  <Page title="Cruzamento Virtual">
     <div class="px-5">
       <div
         class="blocks d-flex align-items-center justify-content-center mb-3"
