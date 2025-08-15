@@ -90,10 +90,6 @@ export default {
       border-image: linear-gradient(to bottom, #fff, var(--bs-primary)) 1;
       box-shadow: 0 8px 6px -6px rgba(0, 0, 0, 0.3);
 
-      @media (max-width: 1200px) {
-        font-size: 16px;
-      }
-
       @media (max-width: 1100px) {
         font-size: 14px;
       }
