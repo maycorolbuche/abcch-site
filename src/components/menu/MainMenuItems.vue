@@ -79,7 +79,7 @@ export default {
       color: #000;
       margin: 0 5px 0 5px;
       font-weight: 800;
-      font-size: 18px;
+      font-size: 14px;
       line-height: 0.9;
       text-align: center;
       height: 40px;
@@ -89,10 +89,6 @@ export default {
       border-color: var(--bs-primary);
       border-image: linear-gradient(to bottom, #fff, var(--bs-primary)) 1;
       box-shadow: 0 8px 6px -6px rgba(0, 0, 0, 0.3);
-
-      @media (max-width: 1100px) {
-        font-size: 14px;
-      }
 
       @media (max-width: 1000px) {
         font-size: 12px;
