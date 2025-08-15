@@ -4,7 +4,8 @@
   >
     <div class="left-menu flex-auto">
       <div class="header-title fw-bold fst-italic h-50">
-        ASSOCIAÇÃO BRASILEIRA DOS CRIADORES DO CAVALO BRASILEIRO DE HIPISMO
+        ASSOCIAÇÃO BRASILEIRA DOS CRIADORES
+        <br />DO CAVALO BRASILEIRO DE HIPISMO
       </div>
       <div class="main-menu h-50">
         <MainMenu :items="menu[0]" />
@@ -293,11 +294,11 @@ header {
     }
   }
 
-  @media (max-width: 600px) {
+  @media (max-width: 660px) {
     flex-direction: column !important;
 
     .left-menu {
-      display: none;
+      text-align: center;
     }
 
     .social-icons {

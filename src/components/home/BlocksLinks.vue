@@ -1,12 +1,10 @@
 <template>
   <div class="block-container">
-    <router-link
-      v-for="block in blocks"
-      :key="block.title"
-      :to="block.to"
-      :style="{ backgroundImage: block?.img ? `url(${block.img})` : '' }"
-    >
-      <span>{{ block.title }}</span>
+    <router-link v-for="block in blocks" :key="block.title" :to="block.to">
+      <div v-if="block?.img" class="bg">
+        <img :src="block.img" />
+      </div>
+      <span v-html="block.title" />
     </router-link>
   </div>
 </template>
@@ -22,7 +20,7 @@ export default {
     blocks() {
       return [
         {
-          title: "Consulta Genealógica",
+          title: "Consulta<br>Genealógica",
           to: { name: "animals" },
           img: geneticaImg,
         },
@@ -64,16 +62,31 @@ export default {
   }
 
   > a {
+    position: relative;
     background: #ccc;
-    background-position: center;
-    background-size: cover;
     height: 175px;
     display: flex;
     align-items: center;
     justify-content: center;
     text-transform: uppercase;
 
+    .bg {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      opacity: 0.5;
+
+      img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+    }
+
     span {
+      z-index: 1;
       background: var(--bs-primary);
       color: #fff;
       padding: 3px 8px;
