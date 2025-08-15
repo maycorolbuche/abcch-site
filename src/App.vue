@@ -30,6 +30,7 @@ body {
   justify-content: center;
 
   #app {
+    width: 100%;
     max-width: 1100px;
   }
 }
