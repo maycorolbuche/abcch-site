@@ -23,3 +23,14 @@ export default {
   },
 };
 </script>
+
+<style lang="scss">
+body {
+  display: flex;
+  justify-content: center;
+
+  #app {
+    max-width: 1100px;
+  }
+}
+</style>
