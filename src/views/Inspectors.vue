@@ -20,18 +20,18 @@
           },
           {
             key: 'telefone',
-            label: '1º Tel.',
+            label: 'Telefone',
           },
           {
             key: 'email',
             label: 'E-mail',
           },
           {
-            key: 'end_cidade',
+            key: 'cidade',
             label: 'Cidade',
           },
           {
-            key: 'end_uf',
+            key: 'uf',
             label: 'UF',
           },
         ]"

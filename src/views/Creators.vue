@@ -19,15 +19,15 @@
             label: 'Nome',
           },
           {
-            key: 'end_cidade',
+            key: 'cidade',
             label: 'Cidade',
           },
           {
-            key: 'end_uf',
+            key: 'uf',
             label: 'UF',
           },
           {
-            key: 'site',
+            key: 'url_site',
             label: 'Site',
             type: 'link',
           },
