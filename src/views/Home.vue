@@ -1,16 +1,23 @@
 <template>
-  <BRow class="m-0 p-0">
-    <BCol :cols="12" :md="6" class="p-0 pt-4">
+  <BRow class="m-0 p-0 pt-4">
+    <BCol :cols="12" :md="6" class="m-0 p-0 pe-md-2">
       <BlocksLinks />
     </BCol>
-    <BCol :cols="12" :md="6" class="p-0 px-4 pt-4">
+    <BCol :cols="12" :md="6" class="m-0 p-0 ps-2 pe-4">
       <LatestNews />
     </BCol>
   </BRow>
 
-  <div>
-    <Banner type="banner" />
-  </div>
+  <BRow class="m-0 p-0 py-2 pb-4">
+    <BCol :cols="12" :md="6" class="m-0 p-0 pe-md-2">
+      <Banner type="banner" />
+      <BlocksPartners class="pt-3" />
+    </BCol>
+    <BCol :cols="12" :md="6" class="m-0 p-0 ps-md-2">
+      <BlocksPartners class="pb-3" />
+      <Banner type="info" />
+    </BCol>
+  </BRow>
 
   <BeAssociate />
   <Separator secondary-color="#F0E9DF" />
@@ -24,6 +31,7 @@ import Separator from "@/components/Separator.vue";
 import Banner from "@/components/Banner.vue";
 
 import BlocksLinks from "@/components/home/BlocksLinks.vue";
+import BlocksPartners from "@/components/home/BlocksPartners.vue";
 import LatestNews from "@/components/home/LatestNews.vue";
 import BeAssociate from "@/components/home/BeAssociate.vue";
 import MakeYourInquiry from "@/components/home/MakeYourInquiry.vue";
