@@ -11,8 +11,8 @@
         <MainMenu :items="menu[0]" />
       </div>
     </div>
-    <div class="logo-menu">
-      <Logo :width="150" />
+    <div class="logo-menu px-2">
+      <Logo :width="140" />
     </div>
     <div class="flex-auto">
       <div

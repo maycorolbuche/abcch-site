@@ -20,7 +20,7 @@
   </BRow>
 
   <BeAssociate />
-  <Separator secondary-color="#F0E9DF" />
+  <Separator primary-color="var(--bs-tertiary)" secondary-color="#F0E9DF" />
 
   <MakeYourInquiry />
 </template>

@@ -1,5 +1,6 @@
 <template>
-  <div class="bg-primary p-5">
+  <div class="p-5 position-relative" style="background: var(--bs-tertiary)">
+    <div class="aux-bg" />
     <div class="text-uppercase text-center text-white fs-1 fw-500">
       Seja um Associado
     </div>
@@ -16,7 +17,7 @@
       <BButton
         pill
         variant="white"
-        class="text-primary text-uppercase fw-600 px-4"
+        class="text-tertiary text-uppercase fw-600 px-4"
         :to="{ name: 'page', params: { menu: 'associe' } }"
       >
         Clique Aqui
@@ -24,3 +25,15 @@
     </div>
   </div>
 </template>
+
+<style lang="scss" scoped>
+.aux-bg {
+  position: absolute;
+  background: var(--bs-tertiary);
+  left: -100vw;
+  top: 0;
+  width: calc(100vw * 2);
+  height: 100%;
+  z-index: -1;
+}
+</style>
