@@ -87,13 +87,13 @@ export default {
 
     span {
       z-index: 1;
-      background: var(--bs-primary);
       color: #fff;
       padding: 3px 8px;
       font-size: 17px;
       font-weight: bold;
       text-align: center;
-      text-shadow: 1px 2px 2px #000000;
+      text-shadow: -2px -2px 0 #000, 2px -2px 0 #000, -2px 2px 0 #000,
+        2px 2px 0 #000, 2px 0 0 #000, 0 2px 0 #000, -2px 0 0 #000, 0 -2px 0 #000;
     }
 
     &:hover {
