@@ -225,6 +225,13 @@ export default {
                 },
               },
               {
+                title: "Regulamentos",
+                to: {
+                  name: "docs",
+                  params: { type: "evento" },
+                },
+              },
+              {
                 title: "Festival Nacional",
                 to: {
                   name: "docs",
