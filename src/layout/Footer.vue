@@ -29,7 +29,9 @@
         </div>
         <div class="text-center">
           <p class="fs-5 fw-600 py-3 m-0">E-MAIL</p>
-          <p class="p-0 m-0 fs-6 fw-600">CONTATO@ABCCH.COM.BR</p>
+          <p class="p-0 m-0 fs-12px fw-500">
+            CONTATO@BRASILEIRODEHIPISMO.COM.BR
+          </p>
         </div>
       </div>
       <div class="my-3 p-2 d-flex flex-column align-items-center">

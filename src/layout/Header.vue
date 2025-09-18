@@ -167,13 +167,6 @@ export default {
                 },
               },
               {
-                title: "Rankings",
-                to: {
-                  name: "docs",
-                  params: { type: "ranking" },
-                },
-              },
-              {
                 title: "Comunicados",
                 to: {
                   name: "docs",
@@ -224,6 +217,13 @@ export default {
           {
             title: "Eventos",
             submenu: [
+              {
+                title: "Rankings",
+                to: {
+                  name: "docs",
+                  params: { type: "ranking" },
+                },
+              },
               {
                 title: "Festival Nacional",
                 to: {
