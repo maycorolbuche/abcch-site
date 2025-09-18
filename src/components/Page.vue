@@ -20,7 +20,7 @@
       style="margin-bottom: -50px"
     />
   </div>
-  <div v-else-if="data" v-html="data?.site_html" class="px-5 py-2 pb-4" />
+  <div v-else-if="data" v-html="data?.conteudo" class="px-5 py-2 pb-4" />
 </template>
 
 <script>
