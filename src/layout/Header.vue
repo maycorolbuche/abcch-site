@@ -218,6 +218,12 @@ export default {
             title: "Eventos",
             submenu: [
               {
+                title: "Mídias",
+                to: {
+                  name: "media",
+                },
+              },
+              {
                 title: "Rankings",
                 to: {
                   name: "docs",

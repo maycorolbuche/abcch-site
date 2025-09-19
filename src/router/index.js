@@ -106,6 +106,12 @@ const router = createRouter({
     },
 
     {
+      path: "/fotos",
+      name: "media",
+      component: () => import("../views/Media.vue"),
+    },
+
+    {
       path: "/:menu/:submenu?",
       name: "page",
       component: () => import("../views/Page.vue"),
