@@ -11,10 +11,10 @@
   <BRow class="m-0 p-0 py-2 pb-4">
     <BCol :cols="12" :md="6" class="m-0 p-0 pe-md-2">
       <Banner type="banner" />
-      <BlocksPartners class="pt-3" />
+      <BlocksPartners class="pt-3" :line="2" />
     </BCol>
     <BCol :cols="12" :md="6" class="m-0 p-0 ps-md-2">
-      <BlocksPartners class="pb-3" />
+      <BlocksPartners class="pb-3" :line="1" />
       <Banner type="info" />
     </BCol>
   </BRow>
