@@ -4,8 +4,7 @@
   >
     <div class="left-menu flex-auto">
       <div class="header-title fw-bold fst-italic h-50">
-        ASSOCIAÇÃO BRASILEIRA DOS CRIADORES
-        <br />DO CAVALO BRASILEIRO DE HIPISMO
+        ASSOCIAÇÃO BRASILEIRA DE CRIADORES<br />DO CAVALO DE HIPISMO
       </div>
       <div class="main-menu h-50">
         <MainMenu :items="menu[0]" />
@@ -135,10 +134,7 @@ export default {
               },
               {
                 title: "Mapa genético",
-                to: {
-                  name: "page",
-                  params: { menu: "studbook", submenu: "mapa" },
-                },
+                to: { name: "genetic_map" },
               },
               {
                 title: "Formulários",
@@ -273,7 +269,7 @@ export default {
             },
           },
           {
-            title: "Contato / Ouvidoria",
+            title: "Contato",
             to: { name: "contact" },
           },
           {

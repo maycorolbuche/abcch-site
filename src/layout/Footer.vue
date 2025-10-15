@@ -9,8 +9,9 @@
         </div>
         <div class="text-center">
           <p class="fs-5 fw-600 py-3 m-0">ENDEREÇO</p>
-          <p class="p-0 m-0">Av. Francisco Matarazzo, 1752 - Água Branca</p>
+          <p class="p-0 m-0">Av. Francisco Matarazzo, 1752</p>
           <p class="p-0 m-0">Salas 2007 e 2008</p>
+          <p class="p-0 m-0">Água Branca</p>
           <p class="p-0 m-0">São Paulo - SP - CEP 05001-200</p>
         </div>
       </div>
@@ -29,8 +30,8 @@
         </div>
         <div class="text-center">
           <p class="fs-5 fw-600 py-3 m-0">E-MAIL</p>
-          <p class="p-0 m-0 fs-12px fw-500">
-            CONTATO@BRASILEIRODEHIPISMO.COM.BR
+          <p class="p-0 m-0 fs-13px fw-500" style="overflow-wrap: anywhere">
+            FALECONOSCO@BRASILEIRODEHIPISMO.COM.BR
           </p>
         </div>
       </div>
@@ -40,9 +41,8 @@
         </div>
         <div class="text-center">
           <p class="fs-5 fw-600 py-3 m-0">EXPEDIENTE</p>
-          <p class="p-0 m-0 fw-600">
-            Seg. a Sex. - das 09h00 às 12h30 e das 13h30 às 18h00
-          </p>
+          <p class="p-0 m-0 fw-600">Segunda-feira a Sexta-feira</p>
+          <p class="p-0 m-0 fw-600">das 09h00 às 12h30 e das 13h30 às 18h00</p>
           <p class="p-0 m-0 fw-600">(Exceto feriados)</p>
         </div>
       </div>

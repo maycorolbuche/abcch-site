@@ -34,6 +34,7 @@
             />
           </BFormGroup>
 
+          <!--
           <BFormGroup label="Objetivo do Contato" class="mt-2">
             <BFormSelect
               v-model="form.objetivo"
@@ -43,7 +44,8 @@
               :options="data?.contato_objetivo"
             />
           </BFormGroup>
-
+          -->
+          <!--
           <BFormGroup
             v-if="this.form.objetivo != 1"
             label="Direcionamento do Assunto"
@@ -57,8 +59,8 @@
               :options="contato_direcionamento"
             />
           </BFormGroup>
+          -->
 
-          <!--
           <BFormGroup label="Destinatário" class="mt-2">
             <BFormSelect
               v-model="form.destinatario"
@@ -68,7 +70,6 @@
               :options="data?.contato_email"
             />
           </BFormGroup>
-          -->
 
           <BFormGroup label="Mensagem" class="mt-2">
             <BFormTextarea
@@ -194,22 +195,6 @@ export default {
       if (!this.data || !this.data.contato_direcionamento) return [];
 
       return this.data.contato_direcionamento.filter((item) => item.id !== 1);
-    },
-  },
-  watch: {
-    form: {
-      handler() {
-        if (this.form.objetivo == 1) {
-          this.form.direcionamento = 1;
-          this.form.destinatario = 1;
-        } else {
-          if (this.form.direcionamento == 1) {
-            this.form.direcionamento = null;
-          }
-          this.form.destinatario = 2;
-        }
-      },
-      deep: true,
     },
   },
   methods: {

@@ -82,6 +82,11 @@ const router = createRouter({
       props: true,
     },
     {
+      path: "/studbook/mapa",
+      name: "genetic_map",
+      component: () => import("../views/GeneticMap.vue"),
+    },
+    {
       path: "/studbook/formulario",
       name: "forms",
       component: () => import("../views/Forms.vue"),
