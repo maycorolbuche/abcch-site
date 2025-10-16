@@ -54,6 +54,9 @@
 </template>
 
 <script>
+import Api from "@/services/Api.js";
+import Storage from "@/helpers/Storage.js";
+
 import MainMenu from "@/components/menu/MainMenu.vue";
 import MainMenuMobile from "@/components/menu/MainMenuMobile.vue";
 import Logo from "@/components/Logo.vue";
@@ -76,209 +79,43 @@ export default {
     InstagramIcon,
     WhatsappIcon,
   },
+  data: () => ({
+    data: null,
+  }),
   computed: {
     menu() {
-      return [
-        [
-          {
-            title: "Home",
-            to: { name: "home" },
-          },
-          {
-            title: "Studbook",
-            submenu: [
-              {
-                title: "Como registrar",
-                to: {
-                  name: "page",
-                  params: { menu: "abcch", submenu: "registrar" },
-                },
-              },
-              {
-                title: "Lançamento de cobrição",
-                href: "https://abcch.com.br/sistema/",
-              },
-              {
-                title: "Consulta genealógica",
-                to: { name: "animals" },
-              },
-              {
-                title: "Acompanhe o registro do seu potro",
-                href: "https://abcch.com.br/sistema/",
-              },
-              /*{
-                title: "Garanhões",
-              },*/
-              /*{
-                title: "Matrizes de ouro",
-                submenu: [
-                  {
-                    title: "Regulamento",
-                    to: { name: "gold_mares" },
-                  },
-                  {
-                    title: "Quem são",
-                  },
-                  {
-                    title: "Fotos",
-                  },
-                ],
-              },*/
-              {
-                title: "Matrizes de ouro",
-                to: { name: "gold_mares" },
-              },
-              {
-                title: "Cruzamento virtual",
-                to: { name: "virtual_crossing_search" },
-              },
-              {
-                title: "Mapa genético",
-                to: { name: "genetic_map" },
-              },
-              {
-                title: "Formulários",
-                to: { name: "forms" },
-              },
-              {
-                title: "Inspetores",
-                to: { name: "inspectors" },
-              },
-              {
-                title: "Criadores",
-                to: { name: "creators" },
-              },
-              {
-                title: "Conselho D. técnico",
-                to: {
-                  name: "page",
-                  params: { menu: "abcch", submenu: "diretoria" },
-                },
-              },
-              {
-                title: "Atas CDT",
-                to: {
-                  name: "docs",
-                  params: { type: "cdt" },
-                },
-              },
-              {
-                title: "Comunicados",
-                to: {
-                  name: "docs",
-                  params: { type: "comunicado" },
-                },
-              },
-              {
-                title: "Tabela de emolumentos",
+      if (!this.data) {
+        return [[], []];
+      }
 
-                to: {
-                  name: "page",
-                  params: { menu: "abcch", submenu: "emolumentos" },
-                },
-              },
-              {
-                title: "Biblioteca Virtual",
-                to: { name: "library" },
-              },
-              {
-                title: "Regulamentos",
-                to: {
-                  name: "docs",
-                  params: { type: "regulamento" },
-                },
-              },
-              /*
-              {
-                title: "Regulamentos",
-                submenu: [
-                  {
-                    title: "Reprodutores",
-                  },
-                  {
-                    title: "Stud book",
-                  },
-                ],
-              },
-              */
-            ],
-          },
-          {
-            title: "ABCCH",
-            to: {
-              name: "page",
-              params: { menu: "abcch", submenu: "sobre" },
-            },
-          },
-          {
-            title: "Eventos",
-            submenu: [
-              {
-                title: "Mídias",
-                to: {
-                  name: "media",
-                },
-              },
-              {
-                title: "Rankings",
-                to: {
-                  name: "docs",
-                  params: { type: "ranking" },
-                },
-              },
-              {
-                title: "Regulamentos",
-                to: {
-                  name: "docs",
-                  params: { type: "evento" },
-                },
-              },
-              {
-                title: "Festival Nacional",
-                to: {
-                  name: "docs",
-                  params: { type: "festival" },
-                },
-              },
-              /*
-              {
-                title: "Festival do BH",
-              },
-              {
-                title: "Gran Slam",
-              },
-              {
-                title: "Dia de Campo",
-              },
-              {
-                title: "BH TV",
-              },
-              {
-                title: "Palestras/Cursos",
-              },
-              */
-            ],
-          },
-        ],
-        [
-          {
-            title: "Transparência",
-            to: {
-              name: "docs",
-              params: { type: "transparencia" },
-            },
-          },
-          {
-            title: "Contato",
-            to: { name: "contact" },
-          },
-          {
-            title: "Área Restrita",
-            href: "https://abcch.com.br/sistema/",
-          },
-        ],
-      ];
+      const count = this.data.length;
+      const left_count = count > 0 ? Math.ceil(count / 2) : 0;
+      const rigth_count = count - left_count;
+
+      const left_menu = left_count > 0 ? this.data.slice(0, left_count) : [];
+      const right_menu =
+        rigth_count > 0 ? this.data.slice(rigth_count * -1) : [];
+
+      return [left_menu, right_menu];
     },
+  },
+  methods: {
+    async loadData() {
+      this.data = Storage.get("menu");
+
+      let self = this;
+
+      await Api.get("/menu", {}, function (status, data) {
+        if (status) {
+          self.data = data;
+
+          Storage.set("menu", data);
+        }
+      });
+    },
+  },
+  mounted() {
+    this.loadData();
   },
 };
 </script>
