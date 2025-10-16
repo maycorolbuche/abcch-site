@@ -108,6 +108,13 @@
           </BButton>
         </BForm>
 
+        <div class="mt-4">
+          <div v-for="contato in data?.contato_email" :key="contato.id">
+            <span class="fw-600">{{ contato.nome }}: </span>
+            <a :href="'mailto:' + contato.email">{{ contato.email }}</a>
+          </div>
+        </div>
+
         <div class="map-blocks pt-5">
           <div class="my-3 p-2 d-flex flex-column align-items-center">
             <div class="bg-primary rounded w-content p-3">
