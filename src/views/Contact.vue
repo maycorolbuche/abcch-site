@@ -131,7 +131,9 @@
             </div>
             <div class="text-center">
               <p class="fs-6 fw-600 m-0">E-MAIL</p>
-              <p class="p-0 m-0 fs-6 fw-600">FALECONOSCO@ABCCH.COM.BR</p>
+              <p class="p-0 m-0 fs-6 fw-600">
+                FALECONOSCO@BRASILEIRODEHIPISMO.COM.BR
+              </p>
             </div>
           </div>
         </div>
@@ -148,9 +150,10 @@
             </div>
             <div class="text-center">
               <p class="p-0 m-0 fw-600 text-uppercase">
-                Av. Francisco Matarazzo, 1752 - Água Branca
+                Av. Francisco Matarazzo, 1752
               </p>
               <p class="p-0 m-0 fw-600 text-uppercase">Salas 2007 e 2008</p>
+              <p class="p-0 m-0 fw-600 text-uppercase">Água Branca</p>
               <p class="p-0 m-0 fw-600 text-uppercase">
                 São Paulo - SP - CEP 05001-200
               </p>
@@ -299,7 +302,7 @@ export default {
     flex-wrap: nowrap;
     justify-content: space-between;
     align-items: center;
-    flex-direction: row;
+    flex-direction: column;
 
     @media (max-width: 550px) {
       flex-direction: column;
