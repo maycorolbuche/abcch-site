@@ -152,7 +152,7 @@
               <p class="p-0 m-0 fw-600 text-uppercase">
                 Av. Francisco Matarazzo, 1752
               </p>
-              <p class="p-0 m-0 fw-600 text-uppercase">Salas 2007 e 2008</p>
+              <p class="p-0 m-0 fw-600 text-uppercase">Sala 2008</p>
               <p class="p-0 m-0 fw-600 text-uppercase">Água Branca</p>
               <p class="p-0 m-0 fw-600 text-uppercase">
                 São Paulo - SP - CEP 05001-200

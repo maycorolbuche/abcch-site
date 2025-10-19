@@ -10,7 +10,7 @@
         <div class="text-center">
           <p class="fs-5 fw-600 py-3 m-0">ENDEREÇO</p>
           <p class="p-0 m-0">Av. Francisco Matarazzo, 1752</p>
-          <p class="p-0 m-0">Salas 2007 e 2008</p>
+          <p class="p-0 m-0">Sala 2008</p>
           <p class="p-0 m-0">Água Branca</p>
           <p class="p-0 m-0">São Paulo - SP - CEP 05001-200</p>
         </div>
