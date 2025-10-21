@@ -104,7 +104,6 @@ export default {
       if (this.search) {
         this.loadData();
       } else {
-        console.log("NULL SEARCH");
         this.data = null;
         this.abort();
       }

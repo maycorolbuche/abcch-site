@@ -1,12 +1,7 @@
-import {
-  createRouter,
-  createWebHistory,
-  //  createWebHashHistory,
-} from "vue-router";
+import { createRouter, createWebHistory } from "vue-router";
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
-  //history: createWebHashHistory(import.meta.env.BASE_URL),
   routes: [
     {
       path: "/",
@@ -133,16 +128,12 @@ const router = createRouter({
   },
 });
 
-router.beforeEach((to, from, next) => {
-  if (to.path.startsWith("/sistema") || to.path.startsWith("/arq")) {
-    window.location.href =
-      import.meta.env.VITE_API_URL +
-      "/redirect?url=" +
-      import.meta.env.VITE_URL +
-      to.fullPath;
-    return;
-  }
-  next();
+router.afterEach((to, from) => {
+  history.replaceState(
+    null,
+    "",
+    window.location.href.replace(/(https:\/\/[^/]+)\/site/, "$1")
+  );
 });
 
 export default router;

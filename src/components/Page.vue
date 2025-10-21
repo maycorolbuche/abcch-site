@@ -96,7 +96,7 @@ export default {
             self.data = data;
           }
 
-          console.log(status, data, self.data);
+          //console.log(status, data, self.data);
         }
       );
     },

@@ -68,7 +68,9 @@ export default {
     }
 
     let url = `${this.url()}/${route}${params}`;
-    console.log("method", method);
+    if (this.is_local()) {
+      console.log("method", method);
+    }
     if (method == "GET" && cache[url]) {
       callback(true, cache[url]);
       return true;
@@ -93,7 +95,9 @@ export default {
       body,
       signal,
     }).catch((err) => {
-      console.log("[01]==>", err);
+      if (this.is_local()) {
+        console.log("[01]==>", err);
+      }
       callback(false, err);
       return false;
     });
@@ -101,7 +105,9 @@ export default {
     if (response && response.ok) {
       let data = await response.json();
       if (data.error != undefined && data.error != "") {
-        console.log("[02]==>", data.error);
+        if (this.is_local()) {
+          console.log("[02]==>", data.error);
+        }
         callback(false, data.error);
         return false;
       }
@@ -112,7 +118,9 @@ export default {
       return true;
     } else if (response) {
       let data = await response.json();
-      console.log("[03]==>", data.error);
+      if (this.is_local()) {
+        console.log("[03]==>", data.error);
+      }
       callback(false, data.error);
       return false;
     }
