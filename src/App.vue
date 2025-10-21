@@ -21,6 +21,9 @@ export default {
       return this.$route.name === "home";
     },
   },
+  mounted() {
+    //console.log("App mounted");
+  },
 };
 </script>
 
