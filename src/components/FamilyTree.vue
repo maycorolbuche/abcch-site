@@ -62,7 +62,13 @@
               }"
               class="text-dark"
             >
-              {{ data[index]?.nmAnimal }}
+              <span>{{ data[index]?.nmAnimal }}</span>
+              <div v-if="data[index]?.cdGoldMaresType" class="pt-2">
+                <img
+                  :src="escarapela(data[index]?.cdGoldMaresType)"
+                  style="width: 35px"
+                />
+              </div>
             </router-link>
             <span v-else> &nbsp; </span>
           </div>
@@ -83,6 +89,11 @@
 <script>
 import GenderMale from "@/components/icons/GenderMale.vue";
 import GenderFemale from "@/components/icons/GenderFemale.vue";
+
+import escarapelaEImg from "@/assets/imgs/escarapela_E.png";
+import escarapelaPImg from "@/assets/imgs/escarapela_P.png";
+import escarapelaCImg from "@/assets/imgs/escarapela_C.png";
+import escarapelaSImg from "@/assets/imgs/escarapela_S.png";
 
 export default {
   components: {
@@ -121,6 +132,22 @@ export default {
     },
     data() {
       return [this.sire, this.dam];
+    },
+  },
+  methods: {
+    escarapela(type) {
+      switch (type) {
+        case "E":
+          return escarapelaEImg;
+        case "P":
+          return escarapelaPImg;
+        case "C":
+          return escarapelaCImg;
+        case "S":
+          return escarapelaSImg;
+        default:
+          return null;
+      }
     },
   },
 };

@@ -22,6 +22,17 @@
             <BPlaceholder v-else :width="50" animation="glow" />
           </div>
         </div>
+        <div
+          v-if="data?.DsSiteComments || escarapela"
+          class="d-flex flex-row align-items-center mb-4"
+        >
+          <div v-if="data?.DsSiteComments" class="fw-500 text-danger">
+            {{ data?.DsSiteComments }}
+          </div>
+          <div v-if="escarapela" class="fw-500 text-danger px-3">
+            <img :src="escarapela" />
+          </div>
+        </div>
 
         <h2 class="text-primary border-bottom">Genealogia</h2>
         <div class="overflow-auto" :style="{ opacity: data ? 1 : 0.5 }">
@@ -102,6 +113,11 @@ import Page from "@/components/Page.vue";
 import DataTable from "@/components/DataTable.vue";
 import FamilyTree from "@/components/FamilyTree.vue";
 
+import escarapelaEImg from "@/assets/imgs/escarapela_E.png";
+import escarapelaPImg from "@/assets/imgs/escarapela_P.png";
+import escarapelaCImg from "@/assets/imgs/escarapela_C.png";
+import escarapelaSImg from "@/assets/imgs/escarapela_S.png";
+
 export default {
   components: {
     TitleBar,
@@ -132,6 +148,20 @@ export default {
         { label: "Status do DNA", value: this.data?.DsDNAResult },
         { label: "Local de Nascimento", value: this.data?.DsFoalBirthplace },
       ];
+    },
+    escarapela() {
+      switch (this.data?.CdGoldMaresType) {
+        case "E":
+          return escarapelaEImg;
+        case "P":
+          return escarapelaPImg;
+        case "C":
+          return escarapelaCImg;
+        case "S":
+          return escarapelaSImg;
+        default:
+          return null;
+      }
     },
   },
   methods: {

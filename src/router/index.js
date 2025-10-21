@@ -1,7 +1,12 @@
-import { createRouter, createWebHistory } from "vue-router";
+import {
+  createRouter,
+  createWebHistory,
+  createWebHashHistory,
+} from "vue-router";
 
 const router = createRouter({
-  history: createWebHistory(import.meta.env.BASE_URL),
+  //history: createWebHistory(import.meta.env.BASE_URL),
+  history: createWebHashHistory(import.meta.env.BASE_URL),
   routes: [
     {
       path: "/",
@@ -126,6 +131,18 @@ const router = createRouter({
   scrollBehavior(to, from, savedPosition) {
     return { top: 0 };
   },
+});
+
+router.beforeEach((to, from, next) => {
+  if (to.path.startsWith("/sistema") || to.path.startsWith("/arq")) {
+    window.location.href =
+      import.meta.env.VITE_API_URL +
+      "/redirect?url=" +
+      import.meta.env.VITE_URL +
+      to.fullPath;
+    return;
+  }
+  next();
 });
 
 export default router;
