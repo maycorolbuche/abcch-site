@@ -26,7 +26,7 @@
           v-if="data?.DsSiteComments || escarapela"
           class="d-flex flex-row align-items-center mb-4"
         >
-          <div v-if="data?.DsSiteComments" class="fw-500 text-danger">
+          <div v-if="data?.DsSiteComments" class="flex-auto fw-500 text-danger">
             {{ data?.DsSiteComments }}
           </div>
           <div v-if="escarapela" class="fw-500 text-danger px-3">
