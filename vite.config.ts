@@ -1,15 +1,15 @@
 import { defineConfig } from 'vite';
 import vue from '@vitejs/plugin-vue';
-import { resolve,dirname  } from 'path';
+import { resolve, dirname } from 'path';
 import { fileURLToPath } from 'url';
 import Components from 'unplugin-vue-components/vite'
-import {BootstrapVueNextResolver} from 'bootstrap-vue-next'
+import { BootstrapVueNextResolver } from 'bootstrap-vue-next'
 import { VitePWA } from "vite-plugin-pwa";
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 
 export default defineConfig({
-  base: "/site/",
+  base: "/",
   plugins: [
     vue(),
     Components({
