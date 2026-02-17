@@ -53,6 +53,12 @@ const router = createRouter({
       component: () => import("../views/Creators.vue"),
       props: true,
     },
+    {
+      path: "/garanhoes",
+      name: "stallions ",
+      component: () => import("../views/Stallions.vue"),
+      props: true,
+    },
 
     {
       path: "/studbook/genealogia",
@@ -132,7 +138,7 @@ router.afterEach((to, from) => {
   history.replaceState(
     null,
     "",
-    window.location.href.replace(/(https:\/\/[^/]+)\/site/, "$1")
+    window.location.href.replace(/(https:\/\/[^/]+)\/site/, "$1"),
   );
 });
 
