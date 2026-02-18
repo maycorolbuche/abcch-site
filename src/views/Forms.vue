@@ -111,7 +111,7 @@ export default {
       }
     },
     openLink(data) {
-      const url = `${import.meta.env.VITE_URL}/arq/formularios/${data.url}`;
+      const url = `${import.meta.env.VITE_ADM_URL}/arq/formularios/${data.url}`;
       window.open(url, "_blank");
     },
   },
