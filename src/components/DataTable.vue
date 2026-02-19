@@ -93,6 +93,13 @@
         :limit="pagination_limit"
         align="center"
       />
+
+      <div v-if="showTotals" style="text-align: end">
+        Total de registros:
+        <b>
+          {{ data?.data?.length }}
+        </b>
+      </div>
     </div>
   </div>
 </template>
@@ -133,6 +140,14 @@ export default {
       default: true,
     },
     clearSearchIfChangeParams: {
+      type: Boolean,
+      default: false,
+    },
+    requiresFilter: {
+      type: Boolean,
+      default: false,
+    },
+    showTotals: {
       type: Boolean,
       default: false,
     },
@@ -186,6 +201,21 @@ export default {
   },
   methods: {
     async loadData(options = {}) {
+      if (this.requiresFilter) {
+        if (
+          Object.values(this.getParams).filter(Boolean).length <= 0 &&
+          !this.search
+        ) {
+          this.searching = false;
+          this.data = { data: [] };
+          this.current_page = 1;
+          this.loading_count = 0;
+          Storage.remove("dt-" + this.apiUrl);
+
+          return;
+        }
+      }
+
       if (this.items) {
         this.data = { data: this.items };
       } else if (this.apiUrl) {

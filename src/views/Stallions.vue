@@ -21,6 +21,8 @@
           searchLabel="Informe o nome, o registro ou microchip"
           searchLabelFilter="Nome"
           :clearSearchIfChangeParams="true"
+          :requiresFilter="true"
+          :showTotals="true"
           :params="{ initial }"
           :filters="[{ label: 'Inicial', value: initial }]"
           :fields="[
@@ -84,7 +86,11 @@ export default {
   },
   watch: {
     initial() {
-      Storage.set("dt-initial-/garanhoes", this.initial);
+      if (this.initial) {
+        Storage.set("dt-initial-/garanhoes", this.initial);
+      } else {
+        Storage.remove("dt-initial-/garanhoes");
+      }
     },
   },
   methods: {
@@ -93,7 +99,7 @@ export default {
     },
   },
   mounted() {
-    this.initial = Storage.get("dt-initial-/garanhoes", "");
+    this.initial = Storage.get("dt-initial-/garanhoes", null);
   },
 };
 </script>
