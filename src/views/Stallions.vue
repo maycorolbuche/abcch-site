@@ -52,6 +52,10 @@
                 key: 'NmUserOwner',
                 label: 'Proprietário',
               },
+              {
+                key: 'DsType',
+                label: 'Tipo',
+              },
             ]"
           />
         </div>
