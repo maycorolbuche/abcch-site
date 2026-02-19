@@ -1,65 +1,63 @@
 <template>
   <Page title="Garanhões" subtitle="Aprovados e licenciados pela ABCCH">
-    <div class="px-5">
-      <div class="d-flex">
-        <div class="d-flex flex-column mt-5 pt-4 me-4">
-          <BButton
-            v-for="letter in letters"
-            :key="letter"
-            @click="setInicial(letter)"
-            :variant="letter == initial ? 'primary' : 'outline-primary'"
-            pill
-            class="p-0 m-1 fw-600"
-            style="width: 30px; height: 30px"
-          >
-            {{ letter }}
-          </BButton>
-        </div>
+    <div class="d-flex page-flex">
+      <div class="d-flex flex-column mt-5 pt-4">
+        <BButton
+          v-for="letter in letters"
+          :key="letter"
+          @click="setInicial(letter)"
+          :variant="letter == initial ? 'primary' : 'outline-primary'"
+          pill
+          class="p-0 m-1 fw-600"
+          style="width: 30px; height: 30px"
+        >
+          {{ letter }}
+        </BButton>
+      </div>
 
-        <div style="flex: 1; width: calc(100% - 50px)">
-          <DataTable
-            api-url="/garanhoes"
-            searchLabel="Informe o nome, o registro ou microchip"
-            searchLabelFilter="Nome"
-            :clearSearchIfChangeParams="true"
-            :params="{ initial }"
-            :filters="[{ label: 'Inicial', value: initial }]"
-            :fields="[
-              {
-                key: 'NmAnimal',
-                label: 'Animal',
-                route: {
-                  to: 'animal',
-                  params: { id: 'CdToken' },
-                },
+      <div class="mx-4 page-grid" style="flex: 1">
+        <DataTable
+          api-url="/garanhoes"
+          searchLabel="Informe o nome, o registro ou microchip"
+          searchLabelFilter="Nome"
+          :clearSearchIfChangeParams="true"
+          :params="{ initial }"
+          :filters="[{ label: 'Inicial', value: initial }]"
+          :fields="[
+            {
+              key: 'NmAnimal',
+              label: 'Animal',
+              route: {
+                to: 'animal',
+                params: { id: 'CdToken' },
               },
-              {
-                key: 'NrRegistration',
-                label: 'Registro',
-              },
-              {
-                key: 'DtFoaledBr',
-                label: 'Dt. Nasc.',
-              },
-              {
-                key: 'NmAnimalSire',
-                label: 'Pai',
-              },
-              {
-                key: 'NmAnimalDam',
-                label: 'Mãe',
-              },
-              {
-                key: 'NmUserOwner',
-                label: 'Proprietário',
-              },
-              {
-                key: 'DsType',
-                label: 'Tipo',
-              },
-            ]"
-          />
-        </div>
+            },
+            {
+              key: 'NrRegistration',
+              label: 'Registro',
+            },
+            {
+              key: 'DtFoaledBr',
+              label: 'Dt. Nasc.',
+            },
+            {
+              key: 'NmAnimalSire',
+              label: 'Pai',
+            },
+            {
+              key: 'NmAnimalDam',
+              label: 'Mãe',
+            },
+            {
+              key: 'NmUserOwner',
+              label: 'Proprietário',
+            },
+            {
+              key: 'DsType',
+              label: 'Tipo',
+            },
+          ]"
+        />
       </div>
     </div>
   </Page>
@@ -99,3 +97,13 @@ export default {
   },
 };
 </script>
+
+<style lang="scss" scoped>
+@media (max-width: 1050px) {
+  .page-flex {
+    .page-grid {
+      width: calc(100% - 70px);
+    }
+  }
+}
+</style>
