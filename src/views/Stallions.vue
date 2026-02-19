@@ -16,7 +16,7 @@
           </BButton>
         </div>
 
-        <div style="flex: 1">
+        <div style="flex: 1; width: calc(100% - 50px)">
           <DataTable
             api-url="/garanhoes"
             searchLabel="Informe o nome, o registro ou microchip"
