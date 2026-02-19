@@ -21,6 +21,7 @@
             api-url="/garanhoes"
             searchLabel="Informe o nome, o registro ou microchip"
             searchLabelFilter="Nome"
+            :clearSearchIfChangeParams="true"
             :params="{ initial }"
             :filters="[{ label: 'Inicial', value: initial }]"
             :fields="[

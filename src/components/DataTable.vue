@@ -132,6 +132,10 @@ export default {
       type: Boolean,
       default: true,
     },
+    clearSearchIfChangeParams: {
+      type: Boolean,
+      default: false,
+    },
   },
   data: () => ({
     loading_count: 0,
@@ -148,7 +152,7 @@ export default {
     },
     getParams() {
       return Object.fromEntries(
-        Object.entries(this.params).filter(([_, v]) => v != null)
+        Object.entries(this.params).filter(([_, v]) => v != null),
       );
     },
   },
@@ -159,6 +163,9 @@ export default {
       }
     },
     params() {
+      if (this.clearSearchIfChangeParams) {
+        this.search = "";
+      }
       this.loadData({ current_page: 1 });
     },
     items() {
@@ -221,7 +228,7 @@ export default {
               self.current_page = data.current_page;
               Storage.set("dt-" + self.apiUrl, data);
             }
-          }
+          },
         );
       }
     },
