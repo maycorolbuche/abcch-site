@@ -140,6 +140,9 @@ router.afterEach((to, from) => {
     "",
     window.location.href.replace(/(https:\/\/[^/]+)\/site/, "$1"),
   );
+
+  document.title =
+    (to.meta?.title ? to.meta.title + " " : "") || import.meta.env.VITE_TITLE;
 });
 
 export default router;

@@ -28,12 +28,19 @@ export default {
     TitleBar,
   },
   props: {
-    id: Number,
+    id: [Number, String],
   },
   data: () => ({
     data: null,
     abort_controller: null,
   }),
+  watch: {
+    data(newVal) {
+      if (newVal?.titulo) {
+        document.title = newVal.titulo + import.meta.env.VITE_TITLE;
+      }
+    },
+  },
   methods: {
     async loadData() {
       this.abort();
@@ -52,7 +59,7 @@ export default {
           if (status) {
             self.data = data;
           }
-        }
+        },
       );
     },
     abort() {
