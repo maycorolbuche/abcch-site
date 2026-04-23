@@ -43,6 +43,7 @@
 
 <script>
 import Api from "@/services/Api.js";
+import Storage from "@/helpers/Storage.js";
 
 import TitleBar from "@/components/TitleBar.vue";
 import DocList from "@/components/DocList.vue";
@@ -61,16 +62,9 @@ export default {
     loading: false,
 
     ano: new Date().getFullYear(),
+    title: "",
   }),
   computed: {
-    title() {
-      if (this.type === "festival") {
-        return "Festival Nacional";
-      } else if (this.type === "transparencia") {
-        return "Transparência";
-      }
-      return this.type.charAt(0).toUpperCase() + this.type.slice(1) + "s";
-    },
     ano_options() {
       const currentYear = new Date().getFullYear();
       const anos = [];
@@ -110,8 +104,50 @@ export default {
           if (status) {
             self.data = data;
           }
-        }
+        },
       );
+    },
+
+    findTitleByName(menu, name) {
+      for (const item of menu) {
+        // Verifica se tem "to.name"
+        if (item.to && item.to.name === name) {
+          return item.title;
+        }
+
+        // Verifica se tem "to.params.type" (seu caso: olimpiadas2028)
+        if (item.to && item.to.params && item.to.params.type === name) {
+          return item.title;
+        }
+
+        // Se tiver submenu, busca recursivamente
+        if (item.submenu) {
+          const found = this.findTitleByName(item.submenu, name);
+          if (found) return found;
+        }
+      }
+
+      return null;
+    },
+
+    async getTitle() {
+      let menu = Storage.get("menu");
+      if (!menu) {
+        let self = this;
+        await Api.get("/menu", {}, function (status, data) {
+          if (status) {
+            menu = data;
+          }
+        });
+      }
+
+      const search = this.findTitleByName(menu, this.type);
+      if (search) {
+        this.title = search;
+      } else {
+        this.title =
+          this.type.charAt(0).toUpperCase() + this.type.slice(1) + "s";
+      }
     },
     abort() {
       if (this.abort_controller) {
@@ -121,6 +157,7 @@ export default {
   },
   mounted() {
     this.loadData();
+    this.getTitle();
   },
   beforeUnmount() {
     this.abort();
