@@ -10,7 +10,13 @@
     </BCardTitle>
 
     <template v-if="data">
-      <BCard v-for="item in data" :key="item.id" no-body class="border-0 my-3">
+      <BCard
+        v-for="item in data"
+        :key="item.id"
+        no-body
+        class="border-0 my-3"
+        @click="openLink({ name: 'read_news', params: { id: item.id } })"
+      >
         <BRow class="g-0">
           <BCol cols="3" class="d-flex align-items-center">
             <BCardImg
@@ -94,13 +100,16 @@ export default {
 
             Storage.set("latest_news", data.data);
           }
-        }
+        },
       );
     },
     abort() {
       if (this.abort_controller) {
         this.abort_controller.abort();
       }
+    },
+    openLink(to) {
+      this.$router.push(to);
     },
   },
   mounted() {

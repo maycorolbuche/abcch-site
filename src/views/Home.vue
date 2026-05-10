@@ -41,6 +41,7 @@ export default {
     Banner,
     Separator,
     BlocksLinks,
+    BlocksPartners,
     LatestNews,
     BeAssociate,
     MakeYourInquiry,

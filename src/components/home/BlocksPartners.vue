@@ -5,7 +5,7 @@
       <div v-else-if="block(n)">
         <img
           :src="block(n).imagem_url"
-          class="position-absolute w-100 h-100 left-0 top-0 object-fit-cover"
+          class="position-absolute w-100 h-100 left-0 top-0 object-fit-contain"
           style="cursor: pointer"
           @click="openUrl(block(n).site_url)"
         />
@@ -50,7 +50,7 @@ export default {
 
             Storage.set("blocks-partners", data);
           }
-        }
+        },
       );
     },
     abort() {
@@ -88,7 +88,6 @@ export default {
 
   > div {
     position: relative;
-    background: var(--bs-primary);
     height: 175px;
     display: flex;
     align-items: center;

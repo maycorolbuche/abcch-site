@@ -12,18 +12,13 @@
 <script>
 import geneticaImg from "@/assets/imgs/genetica.jpg";
 import registreImg from "@/assets/imgs/registre_seu_potro.png";
-import friesianImg from "@/assets/imgs/friesian.jpg";
+import stallionImg from "@/assets/imgs/stallion.jpg";
 import festivalImg from "@/assets/imgs/festival_bh.jpg";
 
 export default {
   computed: {
     blocks() {
       return [
-        {
-          title: "Consulta<br>Genealógica",
-          to: { name: "animals" },
-          img: geneticaImg,
-        },
         {
           title: "Registre Seu Potro",
           to: {
@@ -33,9 +28,17 @@ export default {
           img: registreImg,
         },
         {
-          title: "Friesian",
+          title: "Consulta<br>Genealógica",
           to: { name: "animals" },
-          img: friesianImg,
+          img: geneticaImg,
+        },
+        {
+          title: "BH Stallion Show",
+          to: {
+            name: "docs",
+            params: { type: "stallion" },
+          },
+          img: stallionImg,
         },
         {
           title: "Festival BH",
