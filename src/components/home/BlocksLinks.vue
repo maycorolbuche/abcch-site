@@ -79,12 +79,13 @@ export default {
       left: 0;
       width: 100%;
       height: 100%;
-      opacity: 0.5;
+      background: #666;
 
       img {
         width: 100%;
         height: 100%;
         object-fit: cover;
+        opacity: 0.5;
       }
     }
 
