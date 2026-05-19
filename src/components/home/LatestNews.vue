@@ -38,7 +38,10 @@
                 </span>
               </BCardTitle>
               <BCardText class="fs-14px">
-                <span v-if="item.resumo != '...'" v-html="item.resumo" />
+                <span
+                  v-if="item.resumo != '...'"
+                  v-html="adjustText(item.resumo)"
+                />
                 <router-link
                   :to="{ name: 'read_news', params: { id: item.id } }"
                   class="float-end fw-600 fs-13px"
@@ -110,6 +113,19 @@ export default {
     },
     openLink(to) {
       this.$router.push(to);
+    },
+    adjustText(text) {
+      if (!text) return text;
+
+      const lastPart = text.slice(-10);
+      const ampIndex = lastPart.indexOf("&");
+
+      if (ampIndex !== -1) {
+        const cutIndex = text.length - 10 + ampIndex;
+        return text.slice(0, cutIndex) + "...";
+      }
+
+      return text;
     },
   },
   mounted() {
