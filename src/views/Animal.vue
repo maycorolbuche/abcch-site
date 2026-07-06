@@ -23,13 +23,17 @@
           </div>
         </div>
         <div
-          v-if="data?.DsSiteComments || escarapela"
+          v-if="data?.DsSiteComments || escarapelas.length !== 0"
           class="d-flex flex-row align-items-center mb-4"
         >
           <div v-if="data?.DsSiteComments" class="flex-auto fw-500 text-danger">
             {{ data?.DsSiteComments }}
           </div>
-          <div v-if="escarapela" class="fw-500 text-danger px-3">
+          <div
+            v-for="escarapela in escarapelas"
+            :key="escarapela"
+            class="fw-500 text-danger px-3"
+          >
             <img :src="escarapela" />
           </div>
         </div>
@@ -149,19 +153,18 @@ export default {
         { label: "Local de Nascimento", value: this.data?.DsFoalBirthplace },
       ];
     },
-    escarapela() {
-      switch (this.data?.CdGoldMaresType) {
-        case "E":
-          return escarapelaEImg;
-        case "P":
-          return escarapelaPImg;
-        case "C":
-          return escarapelaCImg;
-        case "S":
-          return escarapelaSImg;
-        default:
-          return null;
-      }
+    escarapelas() {
+      const images = {
+        E: escarapelaEImg,
+        P: escarapelaPImg,
+        C: escarapelaCImg,
+        S: escarapelaSImg,
+      };
+
+      return (this.data?.CdGoldMaresType ?? "")
+        .split("")
+        .map((letter) => images[letter])
+        .filter(Boolean);
     },
   },
   methods: {
@@ -181,7 +184,7 @@ export default {
           if (status) {
             self.data = data;
           }
-        }
+        },
       );
     },
     abort() {

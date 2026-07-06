@@ -65,8 +65,13 @@
               <span>{{ data[index]?.nmAnimal }}</span>
               <div v-if="data[index]?.cdGoldMaresType" class="pt-2">
                 <img
-                  :src="escarapela(data[index]?.cdGoldMaresType)"
-                  style="width: 35px"
+                  v-for="escarapela in escarapelas(
+                    data[index]?.cdGoldMaresType,
+                  )"
+                  :key="escarapela"
+                  :alt="escarapela"
+                  :src="escarapela"
+                  style="width: 35px; margin: 1px"
                 />
               </div>
             </router-link>
@@ -135,19 +140,18 @@ export default {
     },
   },
   methods: {
-    escarapela(type) {
-      switch (type) {
-        case "E":
-          return escarapelaEImg;
-        case "P":
-          return escarapelaPImg;
-        case "C":
-          return escarapelaCImg;
-        case "S":
-          return escarapelaSImg;
-        default:
-          return null;
-      }
+    escarapelas(types) {
+      const images = {
+        E: escarapelaEImg,
+        P: escarapelaPImg,
+        C: escarapelaCImg,
+        S: escarapelaSImg,
+      };
+
+      return (types ?? "")
+        .split("")
+        .map((letter) => images[letter])
+        .filter(Boolean);
     },
   },
 };
