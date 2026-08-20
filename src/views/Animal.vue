@@ -140,6 +140,7 @@ export default {
     details() {
       return [
         { label: "Registro", value: this.data?.NrRegistration },
+        { label: "UELN", value: this.data?.NrUELN },
         { label: "Microchip", value: this.data?.CdMicrochip },
         { label: "Nascimento", value: this.data?.DtFoaledBr },
         { label: "Sexo", value: this.data?.DsGender },
@@ -148,6 +149,7 @@ export default {
         { label: "Status", value: this.data?.DsStatus },
         { label: "Raça", value: this.data?.DsBreed },
         { label: "Pelagem", value: this.data?.DsCoatColor },
+        { label: "Método Reprodutivo", value: this.data?.DsBreedingType },
         { label: "DNA", value: this.data?.CdDNALaboratory },
         { label: "Status do DNA", value: this.data?.DsDNAResult },
         { label: "Local de Nascimento", value: this.data?.DsFoalBirthplace },
